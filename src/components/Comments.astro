@@ -1,0 +1,130 @@
+---
+/**
+ * Self-hosted comments on better-auth + D1 (replaces the Giscus placeholder).
+ * target format: "app:<slug>" or "review:<slug>"
+ */
+interface Props {
+	target: string;
+}
+
+const { target } = Astro.props;
+---
+
+<section class="card-surface p-5" data-comments={target}>
+	<h2 class="text-muted text-xs font-semibold uppercase tracking-widest">Comments</h2>
+
+	<div class="mt-4" data-comments-form></div>
+
+	<ul class="mt-6 space-y-5" data-comments-list></ul>
+	<p class="text-muted mt-4 hidden text-xs" data-comments-empty>no comments yet — be the first.</p>
+	<p class="text-muted mt-4 hidden text-xs" data-comments-error></p>
+</section>
+
+<script>
+	import { createAuthClient } from 'better-auth/client';
+
+	const authClient = createAuthClient();
+
+	function setup(root: Element) {
+		const target = root.getAttribute('data-comments') ?? '';
+		const formBox = root.querySelector('[data-comments-form]') as HTMLElement;
+		const list = root.querySelector('[data-comments-list]') as HTMLElement;
+		const empty = root.querySelector('[data-comments-empty]') as HTMLElement;
+		const errorBox = root.querySelector('[data-comments-error]') as HTMLElement;
+
+		const escape = (s: string) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c] as string));
+
+		function renderComment(c: { id: string; body: string; createdAt: number; authorName?: string | null; authorImage?: string | null }) {
+			const li = document.createElement('li');
+			li.className = 'flex gap-3';
+			li.innerHTML = `
+				${c.authorImage
+					? `<img src="${escape(c.authorImage)}" alt="" class="mt-0.5 h-7 w-7 rounded-full border border-dashed border-zinc-500/40" loading="lazy" referrerpolicy="no-referrer" />`
+					: `<span class="text-muted mt-0.5 flex h-7 w-7 items-center justify-center rounded-full border border-dashed border-zinc-500/40 text-[10px]">${escape((c.authorName ?? '?').slice(0, 1).toUpperCase())}</span>`}
+				<div class="min-w-0 flex-1">
+					<div class="flex items-baseline gap-2">
+						<span class="text-accent-2 text-[13px] font-semibold"></span>
+						<time class="text-muted text-[11px]"></time>
+					</div>
+					<p class="mt-1 whitespace-pre-wrap break-words text-[13px] leading-relaxed"></p>
+				</div>
+			`;
+			li.querySelector('span')!.textContent = c.authorName ?? 'anonymous';
+			li.querySelector('time')!.textContent = new Date(c.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+			li.querySelector('p')!.textContent = c.body;
+			return li;
+		}
+
+		async function load() {
+			list.innerHTML = '';
+			errorBox.classList.add('hidden');
+			try {
+				const res = await fetch(`/api/comments?target=${encodeURIComponent(target)}`);
+				if (!res.ok) throw new Error(String(res.status));
+				const data = (await res.json()) as { comments: Array<{ id: string; body: string; createdAt: number; authorName?: string | null; authorImage?: string | null }> };
+				data.comments.forEach((c) => list.appendChild(renderComment(c)));
+				empty.classList.toggle('hidden', data.comments.length > 0);
+			} catch {
+				errorBox.textContent = 'comments unavailable in this preview — they work on openmac.dev';
+				errorBox.classList.remove('hidden');
+			}
+		}
+
+		async function renderForm() {
+			try {
+				const { data } = await authClient.getSession();
+				if (data?.user) {
+					formBox.innerHTML = `
+						<textarea
+							rows="3"
+							maxlength="2000"
+							placeholder="share your experience with this app…"
+							class="text-global-text w-full resize-y rounded-xl border border-dashed border-zinc-500/40 bg-transparent px-3 py-2 text-[13px] outline-none placeholder:text-muted/60 focus:border-link/70"
+						></textarea>
+						<div class="mt-2 flex items-center justify-between">
+							<span class="text-muted text-[11px]">posting as ${escape(data.user.name ?? '')}</span>
+							<button class="rounded-lg border border-dashed border-zinc-500/40 px-3 py-1.5 text-xs hover:border-link/70 hover:text-global-text">post comment</button>
+						</div>
+					`;
+					formBox.querySelector('button')?.addEventListener('click', async () => {
+						const ta = formBox.querySelector('textarea') as HTMLTextAreaElement;
+						const body = ta.value.trim();
+						if (!body) return;
+						const btn = formBox.querySelector('button') as HTMLButtonElement;
+						btn.disabled = true;
+						try {
+							const res = await fetch('/api/comments', {
+								method: 'POST',
+								headers: { 'Content-Type': 'application/json' },
+								body: JSON.stringify({ target, body }),
+							});
+							if (!res.ok) {
+								const err = (await res.json().catch(() => ({}))) as { error?: string };
+								throw new Error(err.error ?? `HTTP ${res.status}`);
+							}
+							ta.value = '';
+							await load();
+						} catch (e) {
+							alert(`failed: ${(e as Error).message}`);
+						} finally {
+							btn.disabled = false;
+						}
+					});
+				} else {
+					formBox.innerHTML = `
+						<a href="/login?redirect=${encodeURIComponent(location.pathname)}" class="cactus-link text-muted rounded-xl border border-dashed border-zinc-500/40 px-3 py-2.5 text-center text-[13px] hover:border-link/70">
+							sign in to join the discussion →
+						</a>
+					`;
+				}
+			} catch {
+				formBox.innerHTML = '';
+			}
+		}
+
+		load();
+		renderForm();
+	}
+
+	document.querySelectorAll('[data-comments]').forEach(setup);
+</script>

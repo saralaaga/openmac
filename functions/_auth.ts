@@ -1,4 +1,5 @@
 import { betterAuth } from 'better-auth';
+import { Kysely } from 'kysely';
 import { D1Dialect } from 'kysely-d1';
 
 export interface Env {
@@ -8,6 +9,11 @@ export interface Env {
   GOOGLE_CLIENT_SECRET?: string;
   GITHUB_CLIENT_ID?: string;
   GITHUB_CLIENT_SECRET?: string;
+}
+
+/** Shared Kysely instance for direct D1 access (comments etc.). */
+export function getDb(env: Pick<Env, 'DB'>) {
+  return new Kysely<any>({ dialect: new D1Dialect({ database: env.DB }) });
 }
 
 export function createAuth(env: Env) {

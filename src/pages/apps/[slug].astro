@@ -2,7 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import Badge from '../../components/Badge.astro';
 import InstallBlock from '../../components/InstallBlock.astro';
-import Giscus from '../../components/Giscus.astro';
+import Comments from '../../components/Comments.astro';
 import AppCard from '../../components/AppCard.astro';
 import { getCollection } from 'astro:content';
 import {
@@ -87,7 +87,7 @@ const jsonLd = {
         )}
       </section>
 
-      <Giscus slug={app.slug} />
+      <Comments target={`app:${app.slug}`} />
     </div>
 
     <aside class="space-y-6">

@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Badge from '../../components/Badge.astro';
-import Giscus from '../../components/Giscus.astro';
+import Comments from '../../components/Comments.astro';
 import { getCollection, render } from 'astro:content';
 import { getApp, formatRepoUrl } from '../../lib/apps';
 
@@ -57,5 +57,5 @@ const app = getApp(review.data.app);
     )}
   </article>
 
-  {app && <div class="mx-auto mt-10 max-w-2xl"><Giscus slug={review.id} /></div>}
+  {app && <div class="mx-auto mt-10 max-w-2xl"><Comments target={`review:${review.id}`} /></div>}
 </Base>
