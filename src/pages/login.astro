@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Logo from '../components/Logo.astro';
 ---
 
 <Base
@@ -9,8 +10,9 @@ import Base from '../layouts/Base.astro';
 	<div class="mx-auto flex min-h-[60vh] max-w-sm flex-col justify-center py-10">
 		<div class="card-surface p-8">
 			<div class="text-center">
-				<div class="text-accent-2 text-2xl font-bold tracking-tight">🍎 OpenMac</div>
-				<h1 class="mt-4 text-lg font-semibold">Sign in to continue</h1>
+				<div class="flex justify-center"><Logo size={40} /></div>
+				<h1 class="text-accent-2 mt-4 text-2xl font-bold tracking-tight">OpenMac</h1>
+				<h2 class="text-global-text mt-2 text-sm font-medium">Sign in to continue</h2>
 				<p class="text-muted mt-2 text-[13px] leading-relaxed">
 					Save favorite apps, join the discussion, and get the weekly digest of new
 					open source releases.

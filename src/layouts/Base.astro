@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Logo from '../components/Logo.astro';
 
 interface Props {
 	title?: string;
@@ -23,6 +24,7 @@ const {
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
@@ -38,7 +40,8 @@ const {
 		class="bg-global-bg text-global-text mx-auto flex min-h-screen max-w-4xl flex-col px-4 pt-16 font-mono text-sm font-normal antialiased sm:px-8"
 	>
 		<header class="mb-10 flex flex-wrap items-center gap-x-8 gap-y-3">
-			<a href="/" class="inline-flex items-baseline gap-2">
+			<a href="/" class="inline-flex items-center gap-2">
+				<Logo size={20} />
 				<span class="text-accent-2 text-xl font-bold sm:text-2xl">OpenMac</span><span class="text-muted text-sm">.dev</span>
 			</a>
 			<nav aria-label="Main" class="flex flex-row divide-x">
