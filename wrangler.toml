@@ -1,3 +1,9 @@
 name = "openmac"
 pages_build_output_dir = "dist"
 compatibility_date = "2026-10-08"
+compatibility_flags = ["nodejs_compat"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "openmac-auth"
+database_id = "c6afe10a-5bff-4204-9cab-86130f18d31d"

@@ -13,7 +13,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^7.3.7"
+    "astro": "^7.3.7",
+    "better-auth": "^1.7.7",
+    "kysely": "^0.29.6",
+    "kysely-d1": "^0.4.0"
   },
   "allowScripts": {
     "esbuild": true

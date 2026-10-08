@@ -63,6 +63,7 @@ const nav = [
 			>
 				<span data-theme-icon>◐</span>
 			</button>
+			<div id="auth-box" class="flex items-center gap-2 text-xs"></div>
 		</header>
 
 		<main id="main" class="flex-1">
@@ -77,6 +78,45 @@ const nav = [
 				<span>© 2026 openmac.dev</span>
 			</div>
 		</footer>
+
+		<script>
+			import { createAuthClient } from 'better-auth/client';
+
+			const authClient = createAuthClient();
+			const box = document.getElementById('auth-box');
+
+			async function renderAuth() {
+				if (!box) return;
+				try {
+					const { data } = await authClient.getSession();
+					if (data?.user) {
+						box.innerHTML = `
+							<span class="text-muted hidden sm:inline">${data.user.email ?? data.user.name}</span>
+							<button id="signout-btn" class="rounded border border-dashed border-zinc-500/40 px-2 py-1 hover:border-link/70 hover:text-global-text">sign out</button>
+						`;
+						document.getElementById('signout-btn')?.addEventListener('click', async () => {
+							await authClient.signOut();
+							await renderAuth();
+						});
+					} else {
+						box.innerHTML = `
+							<button id="login-google" class="rounded border border-dashed border-zinc-500/40 px-2 py-1 hover:border-link/70 hover:text-global-text">google</button>
+							<button id="login-github" class="rounded border border-dashed border-zinc-500/40 px-2 py-1 hover:border-link/70 hover:text-global-text">github</button>
+						`;
+						document.getElementById('login-google')?.addEventListener('click', () =>
+							authClient.signIn.social({ provider: 'google', callbackURL: '/' })
+						);
+						document.getElementById('login-github')?.addEventListener('click', () =>
+							authClient.signIn.social({ provider: 'github', callbackURL: '/' })
+						);
+					}
+				} catch {
+					// auth endpoint not reachable (e.g. static preview) — stay quiet
+					box.innerHTML = '';
+				}
+			}
+			renderAuth();
+		</script>
 
 		<script>
 			document.getElementById('theme-toggle')?.addEventListener('click', () => {
