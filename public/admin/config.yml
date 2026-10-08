@@ -1,8 +1,6 @@
 backend:
-  # After creating the GitHub repo, replace YOUR_USERNAME and consider
-  # Sveltia's built-in GitHub OAuth option: https://github.com/sveltia/sveltia-cms
   name: github
-  repo: YOUR_USERNAME/openmac
+  repo: saralaaga/openmac
   branch: main
 
 media_folder: public/uploads
