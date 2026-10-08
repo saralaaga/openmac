@@ -4,10 +4,23 @@
   "tagline": "System monitor for your menu bar — CPU, GPU, memory, network and sensors",
   "repo": "exelban/stats",
   "website": "https://exelban.com",
-  "platforms": ["mac"],
-  "categories": ["menu-bar", "system-monitoring"],
+  "platforms": [
+    "mac"
+  ],
+  "categories": [
+    "menu-bar",
+    "system-monitoring"
+  ],
   "license": "MIT",
-  "install": { "brew": "stats", "mas": "1418080746" },
-  "meta": { "stars": 32000, "lastRelease": "2026-09-28", "arch": "universal", "updatedAt": "2026-10-08" },
+  "install": {
+    "brew": "stats",
+    "mas": "1418080746"
+  },
+  "meta": {
+    "stars": 42388,
+    "lastRelease": "2026-10-04",
+    "arch": "universal",
+    "updatedAt": "2026-10-08"
+  },
   "description": "The most complete open source system monitor on macOS. Monitor CPU, GPU, RAM, disk, network, battery, temperatures and fans right from the menu bar, with native SwiftUI widgets and granular per-metric settings. A free iStat Menus replacement that keeps improving."
 }

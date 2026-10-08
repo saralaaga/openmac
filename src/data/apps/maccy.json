@@ -4,10 +4,22 @@
   "tagline": "Lightning-fast clipboard manager that stays out of your way",
   "repo": "p0deje/Maccy",
   "website": "https://maccy.app",
-  "platforms": ["mac"],
-  "categories": ["clipboard"],
+  "platforms": [
+    "mac"
+  ],
+  "categories": [
+    "clipboard"
+  ],
   "license": "MIT",
-  "install": { "brew": "maccy", "mas": "1527619340" },
-  "meta": { "stars": 15400, "lastRelease": "2026-09-12", "arch": "universal", "updatedAt": "2026-10-08" },
+  "install": {
+    "brew": "maccy",
+    "mas": "1527619340"
+  },
+  "meta": {
+    "stars": 21837,
+    "lastRelease": "2026-08-10",
+    "arch": "universal",
+    "updatedAt": "2026-10-08"
+  },
   "description": "A blazingly fast, keyboard-driven clipboard history for macOS. Everything stays local — no cloud, no accounts. The obvious free replacement for Paste or Copied, with an optional paid App Store build that supports the developer."
 }
