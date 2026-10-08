@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <!-- Concept B: Dashed terminal tile — Cactus dashed border + prompt -->
+  <rect x="18" y="18" width="92" height="92" rx="24"
+        stroke="#e8e8e8" stroke-width="8" stroke-dasharray="12 9" stroke-linecap="round"/>
+  <path d="M 44 52 L 62 64 L 44 76" stroke="#e8e8e8" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="68" y1="78" x2="88" y2="78" stroke="#2ec48f" stroke-width="9" stroke-linecap="round"/>
+</svg>

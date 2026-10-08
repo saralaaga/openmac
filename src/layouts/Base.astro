@@ -99,16 +99,7 @@ const nav = [
 							await renderAuth();
 						});
 					} else {
-						box.innerHTML = `
-							<button id="login-google" class="rounded border border-dashed border-zinc-500/40 px-2 py-1 hover:border-link/70 hover:text-global-text">google</button>
-							<button id="login-github" class="rounded border border-dashed border-zinc-500/40 px-2 py-1 hover:border-link/70 hover:text-global-text">github</button>
-						`;
-						document.getElementById('login-google')?.addEventListener('click', () =>
-							authClient.signIn.social({ provider: 'google', callbackURL: '/' })
-						);
-						document.getElementById('login-github')?.addEventListener('click', () =>
-							authClient.signIn.social({ provider: 'github', callbackURL: '/' })
-						);
+						box.innerHTML = `<a href="/login" class="cactus-link text-muted rounded border border-dashed border-zinc-500/40 px-2 py-1 hover:border-link/70 hover:text-global-text">sign in</a>`;
 					}
 				} catch {
 					// auth endpoint not reachable (e.g. static preview) — stay quiet

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <!-- Concept C: App grid with one open slot — directory of apps, one opening up -->
+  <g fill="#e8e8e8">
+    <rect x="22" y="22" width="36" height="36" rx="10"/>
+    <rect x="70" y="22" width="36" height="36" rx="10"/>
+    <rect x="22" y="70" width="36" height="36" rx="10"/>
+  </g>
+  <!-- bottom-right slot: outlined, dashed, accent green = "open source" slot -->
+  <rect x="70" y="70" width="36" height="36" rx="10"
+        stroke="#2ec48f" stroke-width="7" stroke-dasharray="11 8" stroke-linecap="round"/>
+</svg>

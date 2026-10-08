@@ -1,0 +1,113 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+	title="Sign in — OpenMac"
+	description="Sign in to OpenMac with Google or GitHub to save favorites, join the discussion, and get the weekly digest."
+>
+	<div class="mx-auto flex min-h-[60vh] max-w-sm flex-col justify-center py-10">
+		<div class="card-surface p-8">
+			<div class="text-center">
+				<div class="text-accent-2 text-2xl font-bold tracking-tight">🍎 OpenMac</div>
+				<h1 class="mt-4 text-lg font-semibold">Sign in to continue</h1>
+				<p class="text-muted mt-2 text-[13px] leading-relaxed">
+					Save favorite apps, join the discussion, and get the weekly digest of new
+					open source releases.
+				</p>
+			</div>
+
+			<div id="login-buttons" class="mt-8 space-y-3">
+				<button
+					id="login-google"
+					class="flex w-full items-center justify-center gap-3 rounded-xl border border-dashed border-zinc-500/40 px-4 py-3 text-sm font-medium transition-colors hover:border-link/70"
+				>
+					<svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24">
+						<path fill="#4285F4" d="M23.49 12.27c0-.79-.07-1.54-.19-2.27H12v4.51h6.47a5.57 5.57 0 0 1-2.4 3.58v3h3.86c2.26-2.09 3.56-5.17 3.56-8.82z" />
+						<path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.86-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09A11.99 11.99 0 0 0 12 24z" />
+						<path fill="#FBBC05" d="M5.27 14.29A7.2 7.2 0 0 1 4.89 12c0-.8.14-1.57.38-2.29V6.62H1.29a12 12 0 0 0 0 10.76l3.98-3.09z" />
+						<path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42A11.98 11.98 0 0 0 12 0 11.99 11.99 0 0 0 1.29 6.62l3.98 3.09C6.22 6.86 8.87 4.75 12 4.75z" />
+					</svg>
+					Continue with Google
+				</button>
+				<button
+					id="login-github"
+					class="flex w-full items-center justify-center gap-3 rounded-xl border border-dashed border-zinc-500/40 px-4 py-3 text-sm font-medium transition-colors hover:border-link/70"
+				>
+					<svg aria-hidden="true" class="h-4 w-4" viewBox="0 0 16 16" fill="currentColor">
+						<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+					</svg>
+					Continue with GitHub
+				</button>
+				<p id="login-error" class="hidden text-center text-xs text-amber-500"></p>
+			</div>
+
+			<div id="logged-in" class="mt-8 hidden text-center">
+				<p class="text-muted text-xs uppercase tracking-widest">signed in as</p>
+				<p id="logged-email" class="text-accent-2 mt-1 font-semibold"></p>
+				<div class="mt-6 space-y-3">
+					<a href="/" class="cactus-link block text-sm">← back to the directory</a>
+					<button
+						id="signout-btn"
+						class="mx-auto block rounded-lg border border-dashed border-zinc-500/40 px-4 py-2 text-xs hover:border-link/70 hover:text-global-text"
+					>
+						sign out
+					</button>
+				</div>
+			</div>
+
+			<p class="text-muted mt-8 text-center text-[11px] leading-relaxed">
+				We only request your name, email and avatar.<br />No spam, ever — see the
+				<a href="/about" class="cactus-link">about page</a> for what an account is for.
+			</p>
+		</div>
+	</div>
+</Base>
+
+<script>
+	import { createAuthClient } from 'better-auth/client';
+
+	const authClient = createAuthClient();
+	const redirect = new URLSearchParams(location.search).get('redirect') ?? '/';
+
+	const buttons = document.getElementById('login-buttons');
+	const loggedIn = document.getElementById('logged-in');
+	const errorEl = document.getElementById('login-error');
+
+	async function render() {
+		try {
+			const { data } = await authClient.getSession();
+			if (data?.user) {
+				buttons?.classList.add('hidden');
+				loggedIn?.classList.remove('hidden');
+				const email = document.getElementById('logged-email');
+				if (email) email.textContent = data.user.email ?? data.user.name ?? '';
+				document.getElementById('signout-btn')?.addEventListener('click', async () => {
+					await authClient.signOut();
+					location.reload();
+				});
+			}
+		} catch {
+			// auth endpoint unreachable — keep buttons visible
+		}
+	}
+
+	async function signIn(provider: 'google' | 'github') {
+		if (errorEl) errorEl.classList.add('hidden');
+		try {
+			await authClient.signIn.social({ provider, callbackURL: redirect });
+		} catch {
+			if (errorEl) {
+				errorEl.textContent =
+					provider === 'github'
+						? 'GitHub sign-in is not configured yet — use Google for now.'
+						: 'Sign-in failed — please try again.';
+				errorEl.classList.remove('hidden');
+			}
+		}
+	}
+
+	document.getElementById('login-google')?.addEventListener('click', () => signIn('google'));
+	document.getElementById('login-github')?.addEventListener('click', () => signIn('github'));
+	render();
+</script>
