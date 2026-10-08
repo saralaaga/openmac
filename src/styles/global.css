@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark;
+}
+
+/* Apple-flavored design tokens (see Research doc §11.2) */
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI",
+    system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+html {
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+}
+
+code,
+pre,
+kbd {
+  font-family: var(--font-mono);
+}
+
+/* Subtle card elevation, Cactus-inspired dark minimalism */
+.card-surface {
+  @apply rounded-2xl border border-zinc-800 bg-zinc-900/60 transition-colors hover:border-zinc-600;
+}

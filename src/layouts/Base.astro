@@ -1,0 +1,55 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'OpenMac — Free your Mac. It can do anything.',
+  description = 'A curated, hands-on directory of open source apps for the Apple ecosystem — Mac, iPhone, iPad, Watch, TV and Vision. Tested by humans, metadata always fresh.',
+} = Astro.props;
+---
+
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="alternate" type="application/rss+xml" title="OpenMac" href="/rss.xml" />
+  </head>
+  <body class="min-h-screen bg-zinc-950 text-zinc-100 antialiased">
+    <header class="sticky top-0 z-10 border-b border-zinc-800/80 bg-zinc-950/80 backdrop-blur">
+      <nav class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
+        <a href="/" class="flex items-center gap-2 font-semibold tracking-tight">
+          <span class="text-lg">🍎</span>
+          <span>OpenMac</span><span class="text-zinc-500">.dev</span>
+        </a>
+        <div class="flex items-center gap-1 text-sm">
+          <a href="/apps" class="rounded-lg px-3 py-1.5 text-zinc-300 hover:bg-zinc-800 hover:text-white">Apps</a>
+          <a href="/reviews" class="rounded-lg px-3 py-1.5 text-zinc-300 hover:bg-zinc-800 hover:text-white">Reviews</a>
+          <a href="/about" class="rounded-lg px-3 py-1.5 text-zinc-300 hover:bg-zinc-800 hover:text-white">About</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="mx-auto max-w-5xl px-4 py-10">
+      <slot />
+    </main>
+
+    <footer class="border-t border-zinc-800/80">
+      <div class="mx-auto flex max-w-5xl flex-col gap-2 px-4 py-8 text-sm text-zinc-500 sm:flex-row sm:items-center sm:justify-between">
+        <p>Free your Mac. It can do anything.</p>
+        <div class="flex gap-4">
+          <a href="/rss.xml" class="hover:text-zinc-300">RSS</a>
+          <a href="https://github.com" class="hover:text-zinc-300" rel="noopener">GitHub</a>
+          <span>© 2026 openmac.dev</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

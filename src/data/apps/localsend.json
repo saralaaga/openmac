@@ -1,0 +1,13 @@
+{
+  "slug": "localsend",
+  "name": "LocalSend",
+  "tagline": "AirDrop-style file sharing that works with every device you own",
+  "repo": "localsend/localsend",
+  "website": "https://localsend.org",
+  "platforms": ["mac", "iphone", "ipad"],
+  "categories": ["file-sharing", "cross-device"],
+  "license": "GPL-3.0",
+  "install": { "brew": "localsend", "mas": "1661733229" },
+  "meta": { "stars": 63000, "lastRelease": "2026-06-21", "arch": "universal", "updatedAt": "2026-10-08" },
+  "description": "Send files and messages to nearby devices over your local network — no cloud, no accounts, no size limits. Works between iPhone, Mac, Windows, Linux and Android, which makes it the cross-platform answer AirDrop never gave you. A flagship of the open source Apple ecosystem."
+}

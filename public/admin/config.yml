@@ -1,0 +1,70 @@
+backend:
+  # After creating the GitHub repo, replace YOUR_USERNAME and consider
+  # Sveltia's built-in GitHub OAuth option: https://github.com/sveltia/sveltia-cms
+  name: github
+  repo: YOUR_USERNAME/openmac
+  branch: main
+
+media_folder: public/uploads
+public_folder: /uploads
+
+collections:
+  - name: apps
+    label: Apps (directory listings)
+    label_singular: App
+    folder: src/data/apps
+    format: json
+    create: true
+    slug: '{{fields.slug}}'
+    editor:
+      preview: false
+    fields:
+      - { label: Slug, name: slug, widget: string, hint: 'URL id, e.g. rectangle' }
+      - { label: Name, name: name, widget: string }
+      - { label: Tagline, name: tagline, widget: string, hint: One sentence }
+      - { label: GitHub repo, name: repo, widget: string, hint: 'owner/name' }
+      - { label: Website, name: website, widget: string, required: false }
+      - label: Platforms
+        name: platforms
+        widget: list
+        hint: 'mac, iphone, ipad, watch, tv, vision'
+      - label: Categories
+        name: categories
+        widget: list
+        hint: 'ids from src/data/taxonomy.json'
+      - { label: License, name: license, widget: string, hint: SPDX id, e.g. MIT }
+      - label: Install
+        name: install
+        widget: object
+        fields:
+          - { label: brew cask name, name: brew, widget: string, required: false }
+          - { label: Mac App Store id, name: mas, widget: string, required: false }
+          - { label: TestFlight URL, name: testflight, widget: string, required: false }
+          - { label: DMG URL, name: dmg, widget: string, required: false }
+      - label: Meta (auto-refreshed by sync workflow)
+        name: meta
+        widget: object
+        fields:
+          - { label: Stars, name: stars, widget: number }
+          - { label: Last release (YYYY-MM-DD), name: lastRelease, widget: string }
+          - { label: Arch, name: arch, widget: string, required: false }
+          - { label: Updated at, name: updatedAt, widget: string }
+      - { label: Description, name: description, widget: text, hint: 2-4 curated sentences }
+
+  - name: reviews
+    label: Reviews
+    folder: src/content/reviews
+    create: true
+    slug: '{{title}}'
+    extension: mdx
+    editor:
+      preview: true
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Description, name: description, widget: string }
+      - { label: Publish date, name: pubDate, widget: datetime, date_format: 'YYYY-MM-DD', time_format: false }
+      - { label: Linked app slug, name: app, widget: string, hint: 'e.g. rectangle' }
+      - { label: Score (0-10), name: score, widget: number, required: false, min: 0, max: 10, step: 0.5 }
+      - { label: Verdict (one-liner), name: verdict, widget: string, required: false }
+      - { label: Draft, name: draft, widget: boolean, default: false }
+      - { label: Body, name: body, widget: markdown }

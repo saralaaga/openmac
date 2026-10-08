@@ -1,0 +1,20 @@
+{
+  "platforms": [
+    { "id": "mac", "name": "Mac", "tagline": "Open source apps for macOS — menu bar, window management, utilities and more." },
+    { "id": "iphone", "name": "iPhone", "tagline": "Open source apps for iOS, installed via App Store or TestFlight." },
+    { "id": "ipad", "name": "iPad", "tagline": "Open source apps that shine on the big screen." },
+    { "id": "watch", "name": "Apple Watch", "tagline": "A small but growing selection of open source watchOS apps." },
+    { "id": "tv", "name": "Apple TV", "tagline": "Open source apps for tvOS." },
+    { "id": "vision", "name": "Vision", "tagline": "Early open source experiments for Apple Vision." }
+  ],
+  "categories": [
+    { "id": "window-management", "name": "Window Management", "description": "Move, resize, tile and snap windows on macOS — keyboard-driven and mouse-friendly." },
+    { "id": "clipboard", "name": "Clipboard", "description": "Clipboard managers and history tools that respect your privacy." },
+    { "id": "menu-bar", "name": "Menu Bar", "description": "Utilities that live in your menu bar and stay out of your way." },
+    { "id": "system-monitoring", "name": "System Monitoring", "description": "Keep an eye on CPU, GPU, memory, network and sensors." },
+    { "id": "file-sharing", "name": "File Sharing", "description": "Send and sync files across devices without the cloud middleman." },
+    { "id": "cross-device", "name": "Cross-Device", "description": "Open source tools that work across your Apple devices — and beyond." },
+    { "id": "screenshots-recording", "name": "Screenshots & Recording", "description": "Capture, annotate and record your screen." },
+    { "id": "input-gestures", "name": "Input & Gestures", "description": "Remap keys, gestures and improve how you type and point." }
+  ]
+}

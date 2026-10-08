@@ -1,0 +1,52 @@
+---
+import Base from '../../layouts/Base.astro';
+import AppCard from '../../components/AppCard.astro';
+import { allApps, categories } from '../../lib/apps';
+---
+
+<Base title="Apps — OpenMac" description="Browse the curated open source app directory for the Apple ecosystem.">
+  <div class="flex items-end justify-between">
+    <div>
+      <h1 class="text-3xl font-bold tracking-tight">Apps</h1>
+      <p class="mt-2 text-zinc-400">{allApps.length} curated open source apps and counting.</p>
+    </div>
+  </div>
+
+  <div id="filters" class="mt-6 flex flex-wrap gap-2">
+    <button class="filter-chip rounded-full border border-zinc-700 px-3 py-1 text-sm text-zinc-200" data-cat="all">
+      All
+    </button>
+    {categories.map((c) => (
+      <button class="filter-chip rounded-full border border-zinc-800 px-3 py-1 text-sm text-zinc-400" data-cat={c.id}>
+        {c.name}
+      </button>
+    ))}
+  </div>
+
+  <div id="grid" class="mt-8 grid gap-4 sm:grid-cols-2">
+    {allApps.map((app) => <AppCard app={app} />)}
+  </div>
+</Base>
+
+<script>
+  const chips = document.querySelectorAll('.filter-chip');
+  const cards = document.querySelectorAll('#grid > a');
+  const activeCls = ['border-zinc-700', 'text-zinc-200'];
+  const inactiveCls = ['border-zinc-800', 'text-zinc-400'];
+
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const cat = chip.getAttribute('data-cat');
+      chips.forEach((c) => {
+        c.classList.remove(...activeCls);
+        c.classList.add(...inactiveCls);
+      });
+      chip.classList.remove(...inactiveCls);
+      chip.classList.add(...activeCls);
+      cards.forEach((card) => {
+        const cats = (card.getAttribute('data-cats') ?? '').split(',');
+        card.classList.toggle('hidden', cat !== 'all' && !cats.includes(cat ?? ''));
+      });
+    });
+  });
+</script>

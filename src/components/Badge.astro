@@ -1,0 +1,21 @@
+---
+interface Props {
+  label: string;
+  tone?: 'neutral' | 'green' | 'amber' | 'red' | 'blue';
+  href?: string;
+}
+
+const { label, tone = 'neutral', href } = Astro.props;
+
+const tones: Record<string, string> = {
+  neutral: 'border-zinc-700 bg-zinc-800/60 text-zinc-300',
+  green: 'border-emerald-800/60 bg-emerald-950/60 text-emerald-300',
+  amber: 'border-amber-800/60 bg-amber-950/60 text-amber-300',
+  red: 'border-red-800/60 bg-red-950/60 text-red-300',
+  blue: 'border-sky-800/60 bg-sky-950/60 text-sky-300',
+};
+
+const cls = `inline-flex items-center rounded-md border px-2 py-0.5 text-xs font-medium ${tones[tone]}`;
+---
+
+{href ? <a href={href} class={cls}>{label}</a> : <span class={cls}>{label}</span>}

@@ -1,0 +1,30 @@
+name: Sync app metadata
+
+on:
+  schedule:
+    - cron: '0 3 * * *' # daily 03:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Run sync
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/sync-metadata.mjs
+
+      - name: Commit changes
+        run: |
+          git config user.name "openmac-bot"
+          git config user.email "raymond@openmac.dev"
+          git diff --quiet || (git add src/data/apps && git commit -m "chore(data): refresh app metadata" && git push)

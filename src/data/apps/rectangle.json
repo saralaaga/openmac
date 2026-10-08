@@ -1,0 +1,13 @@
+{
+  "slug": "rectangle",
+  "name": "Rectangle",
+  "tagline": "Move and resize windows with keyboard shortcuts and snap areas",
+  "repo": "rxhyn/Rectangle",
+  "website": "https://rectangleapp.com",
+  "platforms": ["mac"],
+  "categories": ["window-management"],
+  "license": "MIT",
+  "install": { "brew": "rectangle", "mas": "1569840520" },
+  "meta": { "stars": 26400, "lastRelease": "2026-08-30", "arch": "universal", "updatedAt": "2026-10-08" },
+  "description": "The de-facto open source window manager for macOS. Drag windows to screen edges to snap them, or use a full set of keyboard shortcuts for half/quarter tiling. Native, fast, and unopinionated — the free, community-built alternative to Magnet and BetterSnapTool."
+}
