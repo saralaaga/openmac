@@ -15,7 +15,7 @@ Full research and decision log: `Research/mac-ios-开源软件导航站-调研.m
 | Reviews | `src/content/reviews/*.mdx`, linked to apps via `app: slug` frontmatter |
 | Directory data | `src/data/apps/*.json` + `src/data/taxonomy.json` |
 | Search | Pagefind (build-time static index) |
-| Comments | Giscus placeholder (`src/components/Giscus.astro` — fill repo attrs when repo is public) |
+| Comments | **Self-hosted on D1** (`functions/api/comments/*` + `src/components/Comments.astro`); posting requires better-auth sign-in |
 | RSS | `/rss.xml` via @astrojs/rss |
 | Deploy | Cloudflare Pages (`wrangler.toml`) |
 | Metadata sync | GitHub Actions daily cron → `scripts/sync-metadata.mjs` |
