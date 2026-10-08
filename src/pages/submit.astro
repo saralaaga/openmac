@@ -1,0 +1,68 @@
+---
+import Base from '../layouts/Base.astro';
+import Badge from '../components/Badge.astro';
+---
+
+<Base
+	title="Submit an app — OpenMac"
+	description="Suggest an open source app for the OpenMac directory. Curated by humans, checked against three rules."
+>
+	<h1 class="title">Submit an app</h1>
+	<p class="text-muted mt-2 max-w-2xl leading-relaxed">
+		Suggestions go straight to a human (me). Everything is checked against three
+		rules before it gets a listing.
+	</p>
+
+	<div class="mt-8 grid gap-4 sm:grid-cols-3">
+		<div class="card-surface p-5">
+			<Badge label="Rule 1" tone="green" />
+			<p class="mt-3 text-[13px] leading-relaxed">A real open source license (OSI-recognized).</p>
+		</div>
+		<div class="card-surface p-5">
+			<Badge label="Rule 2" tone="green" />
+			<p class="mt-3 text-[13px] leading-relaxed">Something people can actually install — brew cask, App Store, TestFlight or direct download.</p>
+		</div>
+		<div class="card-surface p-5">
+			<Badge label="Rule 3" tone="green" />
+			<p class="mt-3 text-[13px] leading-relaxed">Signs of life within the last six months (stable tiny utilities get a pass).</p>
+		</div>
+	</div>
+
+	<div class="mt-10 space-y-4">
+		<div class="card-surface p-6">
+			<h2 class="text-accent-2 font-semibold">What helps a suggestion get in</h2>
+			<ul class="text-muted mt-3 list-disc space-y-1.5 pl-5 text-[13px] leading-relaxed">
+				<li>GitHub repo link (owner/name is enough)</li>
+				<li>Which Apple platforms it runs on (mac / iPhone / iPad / Watch / TV / Vision)</li>
+				<li>One sentence on why it's worth listing — what it replaces, who it's for</li>
+				<li>Install method if it's not obvious</li>
+			</ul>
+		</div>
+
+		<div class="card-surface p-6">
+			<h2 class="text-accent-2 font-semibold">Where to send it</h2>
+			<div class="mt-4 space-y-3 text-[13px]">
+				<a
+					id="submit-issue-link"
+					href="https://github.com/"
+					class="cactus-link flex items-center justify-between rounded-xl border border-dashed border-zinc-500/40 px-4 py-3 hover:border-link/70"
+					rel="noopener"
+				>
+					<span>Open a suggestion issue on GitHub</span>
+					<span class="text-muted">→</span>
+				</a>
+				<a
+					href="mailto:raymond@openmac.dev?subject=App%20suggestion%20for%20OpenMac"
+					class="cactus-link flex items-center justify-between rounded-xl border border-dashed border-zinc-500/40 px-4 py-3 hover:border-link/70"
+				>
+					<span>Or email raymond@openmac.dev</span>
+					<span class="text-muted">→</span>
+				</a>
+			</div>
+			<p class="text-muted mt-4 text-[11px]">
+				Listing is free and always will be — there is no paid placement. Reviews are
+				independent and never traded for inclusion.
+			</p>
+		</div>
+	</div>
+</Base>

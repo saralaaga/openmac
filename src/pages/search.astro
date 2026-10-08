@@ -1,0 +1,49 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Search — OpenMac" description="Search open source apps and hands-on reviews across the OpenMac directory.">
+	<h1 class="title">Search</h1>
+	<p class="text-muted mt-2 text-[13px]">Search across every app listing and review.</p>
+
+	<div class="mt-8">
+		<div id="search"></div>
+		<p id="search-fallback" class="text-muted mt-4 hidden text-xs">
+			Search index is built on deploy — it works on
+			<a href="https://openmac.dev/search" class="cactus-link">openmac.dev</a>.
+		</p>
+	</div>
+</Base>
+
+<link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
+
+<style>
+	:global(.pagefind-ui) {
+		--pagefind-ui-primary: var(--color-link);
+		--pagefind-ui-text: var(--color-global-text);
+		--pagefind-ui-background: var(--color-global-bg);
+		--pagefind-ui-border: var(--color-muted);
+		--pagefind-ui-tag: var(--color-global-bg);
+		--pagefind-ui-border-width: 1px;
+		--pagefind-ui-border-radius: 10px;
+		--pagefind-ui-image-border-radius: 8px;
+		--pagefind-ui-font: var(--font-sans, system-ui);
+	}
+	:global(.pagefind-ui input) {
+		font-family: var(--font-mono, monospace) !important;
+	}
+</style>
+
+<script>
+	const mount = document.getElementById('search');
+	const fallback = document.getElementById('search-fallback');
+	// pagefind output only exists after `astro build` — skip vite resolution
+	const pf = '/pagefind/pagefind.js';
+	import(/* @vite-ignore */ pf)
+		.then(async (pagefind: any) => {
+			await pagefind.ui({ element: mount, showImages: false });
+		})
+		.catch(() => {
+			fallback?.classList.remove('hidden');
+		});
+</script>
