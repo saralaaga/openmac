@@ -13,7 +13,6 @@ import {
   categoryById,
   formatStars,
   formatRepoUrl,
-  reviewsForApp,
 } from '../../lib/apps';
 
 export function getStaticPaths() {
@@ -22,7 +21,7 @@ export function getStaticPaths() {
 
 const { app } = Astro.props;
 const reviews = await getCollection('reviews', (r) => !r.data.draft && r.data.app === app.slug);
-const review = reviewsForApp(app.slug, reviews)[0] ?? reviews[0];
+const review = reviews[0];
 const activity = activityOf(app);
 const activityTone = activity === 'active' ? 'green' : activity === 'stale' ? 'amber' : 'red';
 const related = allApps
@@ -45,8 +44,8 @@ const jsonLd = {
 <Base title={`${app.name} — OpenMac`} description={app.tagline}>
   <div class="flex flex-wrap items-start justify-between gap-4">
     <div>
-      <h1 class="text-3xl font-bold tracking-tight">{app.name}</h1>
-      <p class="mt-2 max-w-2xl text-zinc-400">{app.tagline}</p>
+      <h1 class="text-accent-2 text-3xl font-bold tracking-tight">{app.name}</h1>
+      <p class="text-muted mt-2 max-w-2xl leading-relaxed">{app.tagline}</p>
     </div>
     <div class="flex flex-col items-end gap-1.5">
       <Badge label={activityLabel[activity]} tone={activityTone} />
@@ -56,35 +55,35 @@ const jsonLd = {
     </div>
   </div>
 
-  <div class="mt-8 grid gap-6 lg:grid-cols-[1fr_340px]">
+  <div class="mt-8 grid gap-6 lg:grid-cols-[1fr_320px]">
     <div class="space-y-6">
       <section class="card-surface p-6">
-        <h2 class="text-sm font-semibold uppercase tracking-wide text-zinc-400">About</h2>
-        <p class="mt-3 leading-relaxed text-zinc-300">{app.description}</p>
+        <h2 class="text-muted text-xs font-semibold uppercase tracking-widest">About</h2>
+        <p class="mt-3 leading-relaxed">{app.description}</p>
         <div class="mt-4 flex flex-wrap gap-1.5">
           {app.categories.map((c) => (
             <Badge label={categoryById(c)?.name ?? c} href={`/apps/category/${c}/`} />
           ))}
         </div>
-        <div class="mt-6 flex gap-4 text-sm">
-          <a href={formatRepoUrl(app.repo)} class="text-sky-400 hover:underline" rel="noopener" target="_blank">GitHub</a>
-          {app.website && <a href={app.website} class="text-sky-400 hover:underline" rel="noopener" target="_blank">Website</a>}
+        <div class="mt-6 flex gap-4 text-[13px]">
+          <a href={formatRepoUrl(app.repo)} class="cactus-link text-link" rel="noopener" target="_blank">github ↗</a>
+          {app.website && <a href={app.website} class="cactus-link text-link" rel="noopener" target="_blank">website ↗</a>}
         </div>
       </section>
 
       <section class="card-surface p-6">
-        <h2 class="text-sm font-semibold uppercase tracking-wide text-zinc-400">Review</h2>
+        <h2 class="text-muted text-xs font-semibold uppercase tracking-widest">Review</h2>
         {review ? (
           <div class="mt-3">
-            {review.data.score !== undefined && <Badge label={`Score ${review.data.score}/10`} tone="green" />}
-            <h3 class="mt-2 text-lg font-semibold tracking-tight">{review.data.title}</h3>
-            <p class="mt-1 text-sm text-zinc-400">{review.data.description}</p>
-            <a href={`/reviews/${review.id}/`} class="mt-3 inline-block text-sm text-sky-400 hover:underline">
-              Read the hands-on review →
+            {review.data.score !== undefined && <Badge label={`score ${review.data.score}/10`} tone="green" />}
+            <h3 class="text-accent-2 mt-2 text-lg font-semibold tracking-tight">{review.data.title}</h3>
+            <p class="text-muted mt-1 text-[13px]">{review.data.description}</p>
+            <a href={`/reviews/${review.id}/`} class="cactus-link text-link mt-3 inline-block text-[13px]">
+              read the hands-on review →
             </a>
           </div>
         ) : (
-          <p class="mt-3 text-sm text-zinc-500">Not reviewed yet — it's on the list.</p>
+          <p class="text-muted mt-3 text-[13px]">not reviewed yet — it's on the list.</p>
         )}
       </section>
 
@@ -94,20 +93,20 @@ const jsonLd = {
     <aside class="space-y-6">
       <InstallBlock app={app} />
 
-      <div class="card-surface p-5 text-sm text-zinc-400">
-        <h2 class="text-sm font-semibold uppercase tracking-wide text-zinc-400">Metadata</h2>
+      <div class="card-surface p-5 text-[13px]">
+        <h2 class="text-muted text-xs font-semibold uppercase tracking-widest">Metadata</h2>
         <dl class="mt-3 space-y-2">
-          <div class="flex justify-between"><dt>License</dt><dd class="text-zinc-200">{app.license}</dd></div>
-          <div class="flex justify-between"><dt>Stars</dt><dd class="text-zinc-200">{app.meta.stars.toLocaleString()}</dd></div>
-          <div class="flex justify-between"><dt>Last release</dt><dd class="text-zinc-200">{app.meta.lastRelease}</dd></div>
-          <div class="flex justify-between"><dt>Platforms</dt><dd class="text-zinc-200">{app.platforms.join(', ')}</dd></div>
-          <div class="flex justify-between"><dt>Synced</dt><dd class="text-zinc-500">{app.meta.updatedAt}</dd></div>
+          <div class="flex justify-between"><dt class="text-muted">License</dt><dd>{app.license}</dd></div>
+          <div class="flex justify-between"><dt class="text-muted">Stars</dt><dd>{app.meta.stars.toLocaleString()}</dd></div>
+          <div class="flex justify-between"><dt class="text-muted">Last release</dt><dd>{app.meta.lastRelease}</dd></div>
+          <div class="flex justify-between"><dt class="text-muted">Platforms</dt><dd>{app.platforms.join(', ')}</dd></div>
+          <div class="flex justify-between"><dt class="text-muted">Synced</dt><dd class="text-muted">{app.meta.updatedAt}</dd></div>
         </dl>
       </div>
 
       {related.length > 0 && (
         <div>
-          <h2 class="mb-3 text-sm font-semibold uppercase tracking-wide text-zinc-400">Related</h2>
+          <h2 class="text-muted mb-3 text-xs font-semibold uppercase tracking-widest">Related</h2>
           <div class="space-y-3">
             {related.map((a) => <AppCard app={a} />)}
           </div>

@@ -18,41 +18,39 @@ const app = getApp(review.data.app);
 <Base title={`${review.data.title} — OpenMac`} description={review.data.description}>
   <article class="mx-auto max-w-2xl">
     <div class="flex flex-wrap items-center gap-3">
-      {review.data.score !== undefined && <Badge label={`Score ${review.data.score}/10`} tone="green" />}
-      <time class="text-xs text-zinc-500" datetime={review.data.pubDate.toISOString()}>
+      {review.data.score !== undefined && <Badge label={`score ${review.data.score}/10`} tone="green" />}
+      <time class="text-muted text-xs" datetime={review.data.pubDate.toISOString()}>
         {review.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
       </time>
     </div>
 
-    <h1 class="mt-3 text-3xl font-bold tracking-tight">{review.data.title}</h1>
-    <p class="mt-3 text-zinc-400">{review.data.description}</p>
+    <h1 class="text-accent-2 mt-3 text-3xl font-bold tracking-tight">{review.data.title}</h1>
+    <p class="text-muted mt-3 leading-relaxed">{review.data.description}</p>
 
     {app && (
       <a href={`/apps/${app.slug}/`} class="card-surface mt-6 flex items-center justify-between p-4">
         <div>
-          <p class="text-xs uppercase tracking-wide text-zinc-500">Reviewed app</p>
-          <p class="font-semibold">{app.name} — {app.tagline}</p>
+          <p class="text-muted text-[10px] uppercase tracking-widest">reviewed app</p>
+          <p class="mt-0.5 font-semibold">{app.name} — {app.tagline}</p>
         </div>
-        <span class="text-sm text-sky-400">View app →</span>
+        <span class="text-link text-sm">view app →</span>
       </a>
     )}
 
     {review.data.verdict && (
-      <blockquote class="mt-6 border-l-2 border-emerald-500 pl-4 text-zinc-300 italic">
-        {review.data.verdict}
+      <blockquote class="text-quote mt-6 pl-4 italic">
+        “{review.data.verdict}”
       </blockquote>
     )}
 
-    <div
-      class="prose-invert mt-8 space-y-6 leading-relaxed text-zinc-300 [&_a]:text-sky-400 [&_a]:underline [&_h2]:mt-10 [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:text-white [&_h3]:font-semibold [&_h3]:text-white [&_li]:my-1 [&_ul]:list-disc [&_ul]:pl-6 [&_strong]:text-white"
-    >
+    <div class="prose mt-8 max-w-none">
       <Content />
     </div>
 
     {app && (
-      <p class="mt-10 text-sm text-zinc-500">
-        Source:
-        <a href={formatRepoUrl(app.repo)} class="text-sky-400 hover:underline" rel="noopener" target="_blank">
+      <p class="text-muted mt-10 text-xs">
+        source:
+        <a href={formatRepoUrl(app.repo)} class="cactus-link text-link" rel="noopener" target="_blank">
           {app.repo}
         </a>
       </p>

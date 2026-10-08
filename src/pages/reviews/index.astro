@@ -10,29 +10,27 @@ const reviews = (await getCollection('reviews', (r) => !r.data.draft)).sort((a, 
 ---
 
 <Base title="Reviews — OpenMac" description="Hands-on reviews of open source apps for the Apple ecosystem. Real usage, real screenshots, real verdicts.">
-  <h1 class="text-3xl font-bold tracking-tight">Reviews</h1>
-  <p class="mt-2 text-zinc-400">
-    Hands-on, opinionated, and based on daily use — not changelogs.
-  </p>
+  <h1 class="title">Reviews</h1>
+  <p class="text-muted mt-2">hands-on, opinionated, and based on daily use — not changelogs.</p>
 
-  <div class="mt-8 space-y-4">
+  <div class="mt-8 divide-y divide-dashed divide-zinc-500/30">
     {reviews.map((r) => {
       const app = getApp(r.data.app);
       return (
-        <a href={`/reviews/${r.id}/`} class="card-surface block p-6">
+        <a href={`/reviews/${r.id}/`} class="block py-6 first:pt-0">
           <div class="flex flex-wrap items-center gap-3">
             {r.data.score !== undefined && <Badge label={`${r.data.score}/10`} tone="green" />}
             {app && <Badge label={app.name} href={`/apps/${app.slug}/`} />}
-            <time class="text-xs text-zinc-500" datetime={r.data.pubDate.toISOString()}>
+            <time class="text-muted text-xs" datetime={r.data.pubDate.toISOString()}>
               {r.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
             </time>
           </div>
-          <h2 class="mt-3 text-xl font-semibold tracking-tight">{r.data.title}</h2>
-          <p class="mt-1 text-sm text-zinc-400">{r.data.description}</p>
-          {r.data.verdict && <p class="mt-3 text-sm italic text-zinc-300">“{r.data.verdict}”</p>}
+          <h2 class="text-accent-2 mt-3 text-xl font-semibold tracking-tight hover:text-link">{r.data.title}</h2>
+          <p class="text-muted mt-1 text-[13px]">{r.data.description}</p>
+          {r.data.verdict && <p class="text-quote mt-3 text-[13px] italic">“{r.data.verdict}”</p>}
         </a>
       );
     })}
-    {reviews.length === 0 && <p class="text-sm text-zinc-500">First reviews are being written.</p>}
+    {reviews.length === 0 && <p class="text-muted py-6 text-[13px]">first reviews are being written.</p>}
   </div>
 </Base>
