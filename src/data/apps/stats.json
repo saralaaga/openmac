@@ -17,10 +17,10 @@
     "mas": "1418080746"
   },
   "meta": {
-    "stars": 42410,
+    "stars": 42438,
     "lastRelease": "2026-10-04",
     "arch": "universal",
-    "updatedAt": "2026-10-09"
+    "updatedAt": "2026-10-10"
   },
   "description": "The most complete open source system monitor on macOS. Monitor CPU, GPU, RAM, disk, network, battery, temperatures and fans right from the menu bar, with native SwiftUI widgets and granular per-metric settings. A free iStat Menus replacement that keeps improving."
 }

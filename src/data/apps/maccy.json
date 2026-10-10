@@ -16,10 +16,10 @@
     "mas": "1527619340"
   },
   "meta": {
-    "stars": 21855,
+    "stars": 21868,
     "lastRelease": "2026-08-10",
     "arch": "universal",
-    "updatedAt": "2026-10-09"
+    "updatedAt": "2026-10-10"
   },
   "description": "A blazingly fast, keyboard-driven clipboard history for macOS. Everything stays local — no cloud, no accounts. The obvious free replacement for Paste or Copied, with an optional paid App Store build that supports the developer."
 }
