@@ -17,24 +17,28 @@ permissions:
 
 jobs:
   deploy:
-    # CLOUDFLARE_API_TOKEN 未配置时跳过（配置后自动启用）
-    if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+    # CLOUDFLARE_API_TOKEN 未配置时全部 step 跳过（secrets 上下文仅 step 级 if 可用）
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
 
       - uses: actions/setup-node@v4
+        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
         with:
           node-version: 22
           cache: npm
 
       - name: Install dependencies
+        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
         run: npm ci
 
       - name: Build
+        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
         run: npm run build
 
       - name: Deploy to Cloudflare Pages
+        if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
