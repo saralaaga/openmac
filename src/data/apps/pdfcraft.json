@@ -1,0 +1,82 @@
+{
+  "slug": "pdfcraft",
+  "name": "PdfCraft",
+  "tagline": "Reading, organizing and protecting PDFs.",
+  "repo": "storytold/pdfcraft",
+  "website": "https://getartcraft.com/apps/pdfcraft",
+  "logo": "/apps/pdfcraft/logo.png",
+  "platforms": [
+    "mac"
+  ],
+  "categories": [
+    "documents"
+  ],
+  "tags": [
+    "opensource",
+    "mac",
+    "windows",
+    "linux",
+    "pdf",
+    "rust"
+  ],
+  "license": "Apache-2.0",
+  "install": {
+    "brew": "pdfcraft",
+    "downloads": [
+      {
+        "os": "mac",
+        "label": "pdfcraft-0.10.1-macos-universal.dmg",
+        "url": "https://github.com/storytold/pdfcraft/releases/download/v0.10.1/pdfcraft-0.10.1-macos-universal.dmg",
+        "size": 95363974
+      },
+      {
+        "os": "windows",
+        "label": "pdfcraft-0.10.1-windows-x64.msi",
+        "url": "https://github.com/storytold/pdfcraft/releases/download/v0.10.1/pdfcraft-0.10.1-windows-x64.msi",
+        "size": 72130560
+      },
+      {
+        "os": "linux",
+        "label": "pdfcraft-0.10.1-linux-x86_64.AppImage",
+        "url": "https://github.com/storytold/pdfcraft/releases/download/v0.10.1/pdfcraft-0.10.1-linux-x86_64.AppImage",
+        "size": 81938936
+      }
+    ]
+  },
+  "meta": {
+    "stars": 16824,
+    "lastRelease": "2026-10-21",
+    "updatedAt": "2026-10-21"
+  },
+  "description": "PdfCraft is an open-source PDF reader and editor written from scratch in pure Rust by the ArtCraft team, for reading, organizing and protecting PDFs. It ships as a native universal macOS app (DMG and Homebrew cask) and also runs on Windows and Linux. Like all Crafting Apps it is young and moving fast: v0.10.1 landed in October 2026.",
+  "zh": {
+    "tagline": "阅读、整理与保护 PDF。",
+    "description": "PdfCraft 是 ArtCraft 团队从零开始、用纯 Rust 编写的开源 PDF 阅读与编辑工具，用于阅读、整理和保护 PDF。提供 macOS universal 原生版本（DMG 与 Homebrew cask），同时支持 Windows 和 Linux。和所有 Crafting Apps 一样年轻而迭代飞快：v0.10.1 于 2026 年 10 月发布。"
+  },
+  "body": [
+    {
+      "type": "p",
+      "en": "PdfCraft is the ArtCraft family's open-source PDF reader and editor, written from scratch in pure Rust — for reading, organizing and protecting PDFs.",
+      "zh": "PdfCraft 是 ArtCraft 家族的开源 PDF 阅读与编辑工具，从零开始用纯 Rust 编写——用于阅读、整理和保护 PDF。"
+    },
+    {
+      "type": "p",
+      "en": "It ships as a native universal macOS app (DMG and Homebrew cask) alongside Windows and Linux builds. Development moves fast — v0.10.1 landed in October 2026.",
+      "zh": "macOS 提供 universal 原生版本（DMG 与 Homebrew cask），同时有 Windows 和 Linux 构建。迭代很快——v0.10.1 于 2026 年 10 月发布。"
+    }
+  ],
+  "images": [
+    {
+      "src": "/apps/pdfcraft/pdfcraft-viewer.png",
+      "alt": "Reading a PDF in the PdfCraft viewer"
+    },
+    {
+      "src": "/apps/pdfcraft/pdfcraft-organize.png",
+      "alt": "Reordering and organizing PDF pages in PdfCraft"
+    },
+    {
+      "src": "/apps/pdfcraft/pdfcraft-forms.png",
+      "alt": "Filling a PDF form in PdfCraft"
+    }
+  ]
+}

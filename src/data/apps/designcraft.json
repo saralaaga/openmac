@@ -1,0 +1,83 @@
+{
+  "slug": "designcraft",
+  "name": "DesignCraft",
+  "tagline": "Page layout and publishing.",
+  "repo": "storytold/designcraft",
+  "website": "https://getartcraft.com/apps/designcraft",
+  "logo": "/apps/designcraft/logo.png",
+  "platforms": [
+    "mac"
+  ],
+  "categories": [
+    "design"
+  ],
+  "tags": [
+    "opensource",
+    "mac",
+    "windows",
+    "linux",
+    "layout",
+    "publishing",
+    "rust"
+  ],
+  "license": "Apache-2.0",
+  "install": {
+    "brew": "designcraft",
+    "downloads": [
+      {
+        "os": "mac",
+        "label": "designcraft-0.10.0-macos-universal.dmg",
+        "url": "https://github.com/storytold/designcraft/releases/download/v0.10.0/designcraft-0.10.0-macos-universal.dmg",
+        "size": 90808061
+      },
+      {
+        "os": "windows",
+        "label": "designcraft-0.10.0-windows-x64.msi",
+        "url": "https://github.com/storytold/designcraft/releases/download/v0.10.0/designcraft-0.10.0-windows-x64.msi",
+        "size": 63660032
+      },
+      {
+        "os": "linux",
+        "label": "designcraft-0.10.0-linux-x86_64.AppImage",
+        "url": "https://github.com/storytold/designcraft/releases/download/v0.10.0/designcraft-0.10.0-linux-x86_64.AppImage",
+        "size": 76691960
+      }
+    ]
+  },
+  "meta": {
+    "stars": 4587,
+    "lastRelease": "2026-10-20",
+    "updatedAt": "2026-10-21"
+  },
+  "description": "DesignCraft is an open-source page and layout design editor written from scratch in pure Rust by the ArtCraft team. It ships as a native universal macOS app (DMG and Homebrew cask) and also runs on Windows and Linux. Like all Crafting Apps it is young and moving fast: v0.10.0 landed in October 2026.",
+  "zh": {
+    "tagline": "版面设计与出版。",
+    "description": "DesignCraft 是 ArtCraft 团队从零开始、用纯 Rust 编写的开源版面设计编辑器。提供 macOS universal 原生版本（DMG 与 Homebrew cask），同时支持 Windows 和 Linux。和所有 Crafting Apps 一样年轻而迭代飞快：v0.10.0 于 2026 年 10 月发布。"
+  },
+  "body": [
+    {
+      "type": "p",
+      "en": "DesignCraft is the ArtCraft family's open-source page and layout design editor, written from scratch in pure Rust.",
+      "zh": "DesignCraft 是 ArtCraft 家族的开源版面设计编辑器，从零开始用纯 Rust 编写。"
+    },
+    {
+      "type": "p",
+      "en": "It ships as a native universal macOS app (DMG and Homebrew cask) alongside Windows and Linux builds. Development moves fast — v0.10.0 landed in October 2026.",
+      "zh": "macOS 提供 universal 原生版本（DMG 与 Homebrew cask），同时有 Windows 和 Linux 构建。迭代很快——v0.10.0 于 2026 年 10 月发布。"
+    }
+  ],
+  "images": [
+    {
+      "src": "/apps/designcraft/ui-spread.png",
+      "alt": "An editorial spread being laid out in DesignCraft"
+    },
+    {
+      "src": "/apps/designcraft/page-2.png",
+      "alt": "A page layout in DesignCraft"
+    },
+    {
+      "src": "/apps/designcraft/page-cover.png",
+      "alt": "Designing a publication cover in DesignCraft"
+    }
+  ]
+}

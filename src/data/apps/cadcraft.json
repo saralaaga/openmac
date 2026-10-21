@@ -1,0 +1,95 @@
+{
+  "slug": "cadcraft",
+  "name": "CADCraft",
+  "tagline": "AutoCAD-style open source CAD in pure Rust — 2D drafting and 3D modeling with DXF support.",
+  "repo": "storytold/cadcraft",
+  "website": "https://getartcraft.com/apps/cadcraft",
+  "platforms": [
+    "mac"
+  ],
+  "categories": [
+    "cad"
+  ],
+  "tags": [
+    "opensource",
+    "mac",
+    "windows",
+    "linux",
+    "web",
+    "cad",
+    "dxf",
+    "rust"
+  ],
+  "license": "Apache-2.0",
+  "install": {
+    "brew": "cadcraft",
+    "downloads": [
+      {
+        "os": "mac",
+        "label": "cadcraft-0.10.0-macos-universal.dmg",
+        "url": "https://github.com/storytold/cadcraft/releases/download/v0.10.0/cadcraft-0.10.0-macos-universal.dmg",
+        "size": 67628069
+      },
+      {
+        "os": "windows",
+        "label": "cadcraft-0.10.0-windows-x64.msi",
+        "url": "https://github.com/storytold/cadcraft/releases/download/v0.10.0/cadcraft-0.10.0-windows-x64.msi",
+        "size": 49143808
+      },
+      {
+        "os": "linux",
+        "label": "cadcraft-0.10.0-linux-x86_64.AppImage",
+        "url": "https://github.com/storytold/cadcraft/releases/download/v0.10.0/cadcraft-0.10.0-linux-x86_64.AppImage",
+        "size": 58116600
+      }
+    ]
+  },
+  "meta": {
+    "stars": 6250,
+    "lastRelease": "2026-10-21",
+    "updatedAt": "2026-10-21"
+  },
+  "body": [
+    {
+      "type": "p",
+      "en": "CADCraft is an open-source computer-aided design and drafting application written in pure Rust by the ArtCraft team — a modern, clean-room take on the classic AutoCAD workflow.",
+      "zh": "CADCraft 是 ArtCraft 团队用纯 Rust 编写的开源 CAD 制图应用，对经典 AutoCAD 工作流做了一次干净的现代重写。"
+    },
+    {
+      "type": "img",
+      "src": "/apps/cadcraft/ui-apartment.png",
+      "alt": "CADCraft drafting an apartment floor plan in DXF — rooms with areas, a room schedule table, dimensions and a leader note, with the command line at the bottom"
+    },
+    {
+      "type": "p",
+      "en": "The drafting side covers the essentials: a command line, object snaps, layers, dimensions, hatches, blocks and tables, organized around the DXF and DWG drawings you already have.",
+      "zh": "制图功能覆盖 CAD 的基本盘：命令行、对象捕捉、图层、标注、填充、图块和表格，围绕已有的 DXF、DWG 图纸展开工作。"
+    },
+    {
+      "type": "img",
+      "src": "/apps/cadcraft/ui-bracket.png",
+      "alt": "A mounting bracket mechanical drawing opened from a DWG file — front view and section A-A with dimensions and a title block"
+    },
+    {
+      "type": "p",
+      "en": "There's a 3D modeling tab for solids, and finished drawings can be arranged on paper layouts for plotting.",
+      "zh": "除 2D 制图外还有 3D 实体建模标签页，完成的图纸可以排进纸面布局用于出图。"
+    },
+    {
+      "type": "img",
+      "src": "/apps/cadcraft/ui-layout.png",
+      "alt": "The apartment plan arranged on an A1 paper layout ready for plotting"
+    },
+    {
+      "type": "p",
+      "en": "It ships as a native universal macOS app (DMG and Homebrew cask), and also runs on Windows, Linux, FreeBSD and in the browser via WebAssembly. The project is young — v0.8.0, officially tagged “early development” — so expect rough edges, but the iteration pace is unusually fast.",
+      "zh": "macOS 提供 universal 原生版本（DMG 和 Homebrew cask），也能跑在 Windows、Linux、FreeBSD 上，甚至通过 WebAssembly 在浏览器里运行。项目还很年轻——v0.8.0，官方标注 early development——会有毛边，但迭代速度罕见地快。"
+    }
+  ],
+  "description": "CADCraft is an open-source computer-aided design and drafting application written in pure Rust by the ArtCraft team. It covers a classic CAD workflow — a command line, object snaps, layers, dimensions, hatches, blocks and DXF drawings — plus a 3D tab for solids. It ships as a native universal macOS app (DMG and Homebrew cask), and also runs on Windows, Linux, FreeBSD and in the browser via WebAssembly. The project is young and officially tagged \"early development\": v0.8.0 landed in October 2026 and the codebase is moving fast, so expect rough edges — but also unusually quick iteration for a CAD tool.",
+  "logo": "/apps/cadcraft/logo.png",
+  "zh": {
+    "tagline": "纯 Rust 打造的开源 CAD——类 AutoCAD 工作流，支持 DXF。",
+    "description": "CADCraft 是 ArtCraft 团队用纯 Rust 编写的开源 CAD 制图应用，对经典 AutoCAD 工作流做了一次干净的现代重写。提供命令行、对象捕捉、图层、标注、填充、图块与 DXF 工作流，另有 3D 实体建模标签页。macOS 提供 universal 原生版本（DMG 和 Homebrew cask），也支持 Windows、Linux、FreeBSD，甚至能通过 WebAssembly 在浏览器里运行。项目还很年轻，官方标注 early development——会有毛边，但迭代速度罕见地快。"
+  }
+}

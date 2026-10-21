@@ -1,0 +1,12 @@
+---
+import CategoryPage from '../../../../components/pages/CategoryPage.astro';
+import { liveCategories } from '../../../../lib/apps';
+
+export function getStaticPaths() {
+	return liveCategories.map((c) => ({ params: { category: c.id }, props: { category: c } }));
+}
+
+const { category } = Astro.props;
+---
+
+<CategoryPage category={category} locale="zh" />

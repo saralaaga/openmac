@@ -1,0 +1,83 @@
+{
+  "slug": "photocraft",
+  "name": "PhotoCraft",
+  "tagline": "Image editing: layers, masks, type and real PSD files.",
+  "repo": "storytold/photocraft",
+  "website": "https://getartcraft.com/apps/photocraft",
+  "logo": "/apps/photocraft/logo.png",
+  "platforms": [
+    "mac"
+  ],
+  "categories": [
+    "photo"
+  ],
+  "tags": [
+    "opensource",
+    "mac",
+    "windows",
+    "linux",
+    "photo",
+    "psd",
+    "rust"
+  ],
+  "license": "Apache-2.0",
+  "install": {
+    "brew": "photocraft",
+    "downloads": [
+      {
+        "os": "mac",
+        "label": "photocraft-0.11.1-macos-universal.dmg",
+        "url": "https://github.com/storytold/photocraft/releases/download/v0.11.1/photocraft-0.11.1-macos-universal.dmg",
+        "size": 93079754
+      },
+      {
+        "os": "windows",
+        "label": "photocraft-0.11.1-windows-x64.msi",
+        "url": "https://github.com/storytold/photocraft/releases/download/v0.11.1/photocraft-0.11.1-windows-x64.msi",
+        "size": 71282688
+      },
+      {
+        "os": "linux",
+        "label": "photocraft-0.11.1-linux-x86_64.AppImage",
+        "url": "https://github.com/storytold/photocraft/releases/download/v0.11.1/photocraft-0.11.1-linux-x86_64.AppImage",
+        "size": 79456760
+      }
+    ]
+  },
+  "meta": {
+    "stars": 70172,
+    "lastRelease": "2026-10-20",
+    "updatedAt": "2026-10-21"
+  },
+  "description": "PhotoCraft is an open-source photo editor written from scratch in pure Rust by the ArtCraft team — layers, masks, type and support for real PSD files. It ships as a native universal macOS app (DMG and Homebrew cask) and also runs on Windows and Linux. Like all Crafting Apps it is young and moving fast: v0.11.1 landed in October 2026.",
+  "zh": {
+    "tagline": "图像编辑：图层、蒙版、文字与原生 PSD 支持。",
+    "description": "PhotoCraft 是 ArtCraft 团队从零开始、用纯 Rust 编写的开源照片编辑器——支持图层、蒙版、文字与真实 PSD 文件。提供 macOS universal 原生版本（DMG 与 Homebrew cask），同时支持 Windows 和 Linux。和所有 Crafting Apps 一样年轻而迭代飞快：v0.11.1 于 2026 年 10 月发布。"
+  },
+  "body": [
+    {
+      "type": "p",
+      "en": "PhotoCraft is the ArtCraft family's open-source photo editor, written from scratch in pure Rust. It focuses on everyday image editing — layers, masks, type — and opens real PSD files.",
+      "zh": "PhotoCraft 是 ArtCraft 家族的开源照片编辑器，从零开始用纯 Rust 编写，聚焦日常图像编辑的核心：图层、蒙版、文字，并且能打开真实的 PSD 文件。"
+    },
+    {
+      "type": "p",
+      "en": "It ships as a native universal macOS app (DMG and Homebrew cask) alongside Windows and Linux builds. Development moves fast — v0.11.1 landed in October 2026.",
+      "zh": "macOS 提供 universal 原生版本（DMG 与 Homebrew cask），同时有 Windows 和 Linux 构建。迭代很快——v0.11.1 于 2026 年 10 月发布。"
+    }
+  ],
+  "images": [
+    {
+      "src": "/apps/photocraft/photocraft-masks.jpg",
+      "alt": "Layer masks at work in PhotoCraft — mask controls over the image canvas"
+    },
+    {
+      "src": "/apps/photocraft/photocraft-filters.jpg",
+      "alt": "Adjusting a filter stack on a photo in PhotoCraft"
+    },
+    {
+      "src": "/apps/photocraft/photocraft-type.jpg",
+      "alt": "Adding and styling a text layer in PhotoCraft"
+    }
+  ]
+}

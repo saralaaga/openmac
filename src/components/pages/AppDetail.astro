@@ -1,0 +1,214 @@
+---
+import Base from '../../layouts/Base.astro';
+import Badge from '../Badge.astro';
+import AppCard from '../AppCard.astro';
+import InstallBlock from '../InstallBlock.astro';
+import Comments from '../Comments.astro';
+import { getCollection } from 'astro:content';
+import { COMMENTS_ENABLED } from '../../lib/features';
+import {
+  activityOf,
+  activityLabel,
+  allApps,
+  appText,
+  categoryById,
+  categoryText,
+  formatStars,
+  formatRepoUrl,
+  liveCategories,
+  type App,
+} from '../../lib/apps';
+import { t, type Locale } from '../../lib/i18n';
+
+interface Props {
+	app: App;
+	locale: Locale;
+}
+
+const { app, locale } = Astro.props;
+const T = t(locale);
+const txt = appText(app, locale);
+const reviews = await getCollection('reviews', (r) => !r.data.draft && r.data.app === app.slug);
+const review = reviews[0];
+const activity = activityOf(app);
+const activityTone = activity === 'active' ? 'green' : activity === 'stale' ? 'amber' : 'red';
+const related = allApps
+	.filter((a) => a.slug !== app.slug && a.categories.some((c) => app.categories.includes(c)))
+	.slice(0, 2);
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'SoftwareApplication',
+	name: app.name,
+	description: txt.tagline,
+	applicationCategory: app.categories.map((c) => categoryById(c)?.name ?? c).join(', '),
+	operatingSystem: app.platforms.map((p) => (p === 'mac' ? 'macOS' : p)).join(', '),
+	softwareVersion: 'open source',
+	offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+	...(app.tags?.length ? { keywords: app.tags.join(', ') } : {}),
+	...(app.website ? { url: app.website } : {}),
+};
+---
+
+<Base locale={locale} title={`${app.name} — OpenMac`} description={txt.tagline}>
+	<div class="flex flex-wrap items-start justify-between gap-4">
+		<div class="flex min-w-0 items-center gap-4">
+			{app.logo && (
+				<img
+					src={app.logo}
+					alt=""
+					width="56"
+					height="56"
+					class="h-14 w-14 shrink-0 rounded-xl border border-dashed border-zinc-500/40"
+				/>
+			)}
+			<div>
+				<h1 class="text-accent-2 text-3xl font-bold tracking-tight">{app.name}</h1>
+				<p class="text-muted mt-2 max-w-2xl leading-relaxed">{txt.tagline}</p>
+			</div>
+		</div>
+		<div class="flex flex-col items-end gap-1.5">
+			<Badge label={activityLabel[activity]} tone={activityTone} />
+			<Badge label={`⭐ ${formatStars(app.meta.stars)}`} />
+			<Badge label={app.license} />
+			{app.meta.arch === 'universal' && <Badge label="Apple Silicon ✓" tone="blue" />}
+		</div>
+	</div>
+
+	<div class="mt-8 grid gap-6 lg:grid-cols-[1fr_320px]">
+		<div class="space-y-6">
+			<section class="card-surface p-6">
+				<h2 class="text-muted text-xs font-semibold uppercase tracking-widest">{T.app.about}</h2>
+				{app.body ? (
+					<div>
+						{app.body.map((b) =>
+							b.type === 'img' ? (
+								<img
+									src={b.src}
+									alt={b.alt}
+									loading="lazy"
+									class="mt-4 w-full rounded border border-dashed border-zinc-500/30"
+								/>
+							) : (
+								<p class="mt-3 leading-relaxed">{locale === 'zh' ? b.zh : b.en}</p>
+							)
+						)}
+					</div>
+				) : (
+					<p class="mt-3 leading-relaxed">{txt.description}</p>
+				)}
+				<div class="mt-4 flex flex-wrap gap-1.5">
+					{app.categories.map((c) => {
+						const cat = categoryById(c);
+						const label = cat ? categoryText(cat, locale).name : c;
+						return (
+							<Badge
+								label={label}
+								href={liveCategories.some((lc) => lc.id === c) ? `/apps/category/${c}/` : undefined}
+							/>
+						);
+					})}
+				</div>
+				{app.tags && app.tags.length > 0 && (
+					<div class="mt-2 flex flex-wrap gap-1.5">
+						{app.tags.map((tg) => <Badge label={tg} />)}
+					</div>
+				)}
+				<div class="mt-6 flex gap-4 text-[13px]">
+					<a href={formatRepoUrl(app.repo)} class="cactus-link text-link" rel="noopener" target="_blank">github ↗</a>
+					{app.website && <a href={app.website} class="cactus-link text-link" rel="noopener" target="_blank">website ↗</a>}
+				</div>
+			</section>
+
+			{app.images && app.images.length > 0 && (
+				<section class="card-surface p-6">
+					<h2 class="text-muted text-xs font-semibold uppercase tracking-widest">Screenshots</h2>
+					<div class="mt-4 space-y-4">
+						{app.images.map((img) => (
+							<img
+								src={img.src}
+								alt={img.alt}
+								loading="lazy"
+								class="w-full rounded border border-dashed border-zinc-500/30"
+							/>
+						))}
+					</div>
+				</section>
+			)}
+
+			<section class="card-surface p-6">
+				<h2 class="text-muted text-xs font-semibold uppercase tracking-widest">{T.app.review}</h2>
+				{review ? (
+					<div class="mt-3">
+						{review.data.score !== undefined && <Badge label={`score ${review.data.score}/10`} tone="green" />}
+						<h3 class="text-accent-2 mt-2 text-lg font-semibold tracking-tight">{review.data.title}</h3>
+						<p class="text-muted mt-1 text-[13px]">{review.data.description}</p>
+						<a href={`/reviews/${review.id}/`} class="cactus-link text-link mt-3 inline-block text-[13px]">
+							{T.app.readReview}
+						</a>
+					</div>
+				) : (
+					<p class="text-muted mt-3 text-[13px]">{T.app.reviewEmpty}</p>
+				)}
+			</section>
+
+			{COMMENTS_ENABLED && <Comments target={`app:${app.slug}`} />}
+		</div>
+
+		<aside class="space-y-6">
+			<InstallBlock app={app} locale={locale} />
+
+			<div class="card-surface p-5 text-[13px]">
+				<h2 class="text-muted text-xs font-semibold uppercase tracking-widest">{T.app.metadata}</h2>
+				<dl class="mt-3 space-y-2">
+					<div class="flex justify-between"><dt class="text-muted">{T.app.license}</dt><dd>{app.license}</dd></div>
+					<div class="flex justify-between"><dt class="text-muted">{T.app.stars}</dt><dd>{app.meta.stars.toLocaleString()}</dd></div>
+					<div class="flex justify-between"><dt class="text-muted">{T.app.lastRelease}</dt><dd>{app.meta.lastRelease}</dd></div>
+					<div class="flex justify-between"><dt class="text-muted">{T.app.platforms}</dt><dd>{app.platforms.join(', ')}</dd></div>
+					<div class="flex justify-between"><dt class="text-muted">{T.app.synced}</dt><dd class="text-muted">{app.meta.updatedAt}</dd></div>
+				</dl>
+			</div>
+
+			{app.repo && (
+				<div class="card-surface p-5">
+					<h2 class="text-muted text-xs font-semibold uppercase tracking-widest">{T.app.starHistory}</h2>
+					<img
+						id="star-history"
+						data-repo={app.repo}
+						src={`https://api.star-history.com/svg?repos=${app.repo}&type=Date&theme=dark`}
+						alt={`GitHub star history of ${app.name} (${app.repo})`}
+						loading="lazy"
+						class="mt-3 w-full"
+					/>
+				</div>
+			)}
+
+			{related.length > 0 && (
+				<div>
+					<h2 class="text-muted mb-3 text-xs font-semibold uppercase tracking-widest">{T.app.related}</h2>
+					<div class="space-y-3">
+						{related.map((a) => <AppCard app={a} locale={locale} />)}
+					</div>
+				</div>
+			)}
+		</aside>
+	</div>
+
+	<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+	<script>
+		// star-history chart follows the site's manual theme toggle
+		const chart = document.getElementById('star-history');
+		if (chart) {
+			const setChart = () => {
+				const dark = document.documentElement.dataset.theme !== 'light';
+				chart.src = `https://api.star-history.com/svg?repos=${chart.dataset.repo}&type=Date${dark ? '&theme=dark' : ''}`;
+			};
+			setChart();
+			new MutationObserver(setChart).observe(document.documentElement, {
+				attributes: true,
+				attributeFilter: ['data-theme'],
+			});
+		}
+	</script>
+</Base>

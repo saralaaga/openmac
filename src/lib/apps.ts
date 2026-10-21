@@ -1,11 +1,30 @@
 import taxonomy from '../data/taxonomy.json';
+import type { Locale } from './i18n';
+
+export interface AppDownload {
+  os: 'mac' | 'windows' | 'linux';
+  label: string;
+  url: string;
+  size?: number;
+}
 
 export interface AppInstall {
   brew?: string;
   mas?: string;
   testflight?: string;
-  dmg?: string;
+  /** direct download assets, auto-filled by sync from the latest release */
+  downloads?: AppDownload[];
 }
+
+export interface AppZH {
+  tagline: string;
+  description: string;
+}
+
+/** Article body block: paragraph in EN/ZH, or an inline image (alt in EN). */
+export type AppBodyBlock =
+  | { type: 'p'; en: string; zh: string }
+  | { type: 'img'; src: string; alt: string };
 
 export interface AppMeta {
   stars: number;
@@ -26,6 +45,30 @@ export interface App {
   install: AppInstall;
   meta: AppMeta;
   description: string;
+  logo?: string;
+  tags?: string[];
+  images?: { src: string; alt: string }[];
+  body?: AppBodyBlock[];
+  zh?: AppZH;
+}
+
+/** Tagline + description in the requested locale (falls back to EN). */
+export function appText(app: App, locale: Locale) {
+  return locale === 'zh' && app.zh ? app.zh : { tagline: app.tagline, description: app.description };
+}
+
+/** Category name/description in the requested locale (falls back to EN). */
+export function categoryText(cat: (typeof taxonomy.categories)[number], locale: Locale) {
+  return locale === 'zh' && cat.name_zh
+    ? { name: cat.name_zh, description: cat.description_zh ?? cat.description }
+    : { name: cat.name, description: cat.description };
+}
+
+/** Platform name/tagline in the requested locale (falls back to EN). */
+export function platformText(p: (typeof taxonomy.platforms)[number], locale: Locale) {
+  return locale === 'zh' && p.name_zh
+    ? { name: p.name_zh, tagline: p.tagline_zh ?? p.tagline }
+    : { name: p.name, tagline: p.tagline };
 }
 
 const modules = import.meta.glob<App>('../data/apps/*.json', { eager: true });
@@ -45,6 +88,15 @@ export function appsByCategory(categoryId: string): App[] {
 export function appsByPlatform(platformId: string): App[] {
   return allApps.filter((a) => a.platforms.includes(platformId));
 }
+
+/** Launch gate: listing pages ship once they have real inventory — thin pages stay offline. */
+export const MIN_LISTING_ITEMS = 1;
+export const liveCategories = taxonomy.categories.filter(
+  (c) => appsByCategory(c.id).length >= MIN_LISTING_ITEMS,
+);
+export const livePlatforms = taxonomy.platforms.filter(
+  (p) => appsByPlatform(p.id).length >= MIN_LISTING_ITEMS,
+);
 
 /** Reviews are passed in by pages (astro:content is page-scoped). */
 export function reviewsForApp(appSlug: string, reviews: { data: { app: string } }[]) {

@@ -1,0 +1,36 @@
+---
+import Base from '../../layouts/Base.astro';
+import AppCard from '../../components/AppCard.astro';
+import { appsByCategory, categoryText, liveCategories, type Locale } from '../../lib/apps';
+import { t } from '../../lib/i18n';
+import type { TaxonomyCategory } from '../../lib/taxonomy';
+
+interface Props {
+	category: TaxonomyCategory;
+	locale: Locale;
+}
+
+const { category, locale } = Astro.props;
+const T = t(locale);
+const txt = categoryText(category, locale);
+const apps = appsByCategory(category.id);
+const base = locale === 'zh' ? '/zh' : '';
+---
+
+<Base
+	locale={locale}
+	title={`Open Source ${category.name} Apps — OpenMac`}
+	description={category.description}
+>
+	<nav class="text-muted text-xs">
+		<a href={`${base}/apps`} class="cactus-link">{T.nav.apps.toLowerCase()}</a> / <span class="text-global-text">{txt.name.toLowerCase()}</span>
+	</nav>
+	<h1 class="title mt-2 capitalize">open source {txt.name.toLowerCase()} apps</h1>
+	<p class="text-muted mt-3 max-w-2xl leading-relaxed">{txt.description}</p>
+
+	<div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+		{apps.length > 0 ? apps.map((app) => <AppCard app={app} locale={locale} />) : (
+			<p class="text-muted text-[13px]">{T.category.nothing}</p>
+		)}
+	</div>
+</Base>

@@ -1,0 +1,83 @@
+{
+  "slug": "vectorcraft",
+  "name": "VectorCraft",
+  "tagline": "Vector illustration.",
+  "repo": "storytold/vectorcraft",
+  "website": "https://getartcraft.com/apps/vectorcraft",
+  "logo": "/apps/vectorcraft/logo.png",
+  "platforms": [
+    "mac"
+  ],
+  "categories": [
+    "design"
+  ],
+  "tags": [
+    "opensource",
+    "mac",
+    "windows",
+    "linux",
+    "vector",
+    "illustration",
+    "rust"
+  ],
+  "license": "Apache-2.0",
+  "install": {
+    "brew": "vectorcraft",
+    "downloads": [
+      {
+        "os": "mac",
+        "label": "vectorcraft-0.14.0-macos-universal.dmg",
+        "url": "https://github.com/storytold/vectorcraft/releases/download/v0.14.0/vectorcraft-0.14.0-macos-universal.dmg",
+        "size": 140813282
+      },
+      {
+        "os": "windows",
+        "label": "vectorcraft-0.14.0-windows-x64.msi",
+        "url": "https://github.com/storytold/vectorcraft/releases/download/v0.14.0/vectorcraft-0.14.0-windows-x64.msi",
+        "size": 104124416
+      },
+      {
+        "os": "linux",
+        "label": "vectorcraft-0.14.0-linux-x86_64.AppImage",
+        "url": "https://github.com/storytold/vectorcraft/releases/download/v0.14.0/vectorcraft-0.14.0-linux-x86_64.AppImage",
+        "size": 119454200
+      }
+    ]
+  },
+  "meta": {
+    "stars": 10258,
+    "lastRelease": "2026-10-21",
+    "updatedAt": "2026-10-21"
+  },
+  "description": "VectorCraft is an open-source vector art tool written from scratch in pure Rust by the ArtCraft team. It ships as a native universal macOS app (DMG and Homebrew cask) and also runs on Windows and Linux. Like all Crafting Apps it is young and moving fast: v0.14.0 landed in October 2026.",
+  "zh": {
+    "tagline": "矢量插画。",
+    "description": "VectorCraft 是 ArtCraft 团队从零开始、用纯 Rust 编写的开源矢量绘图工具。提供 macOS universal 原生版本（DMG 与 Homebrew cask），同时支持 Windows 和 Linux。和所有 Crafting Apps 一样年轻而迭代飞快：v0.14.0 于 2026 年 10 月发布。"
+  },
+  "body": [
+    {
+      "type": "p",
+      "en": "VectorCraft is the ArtCraft family's open-source vector illustration tool, written from scratch in pure Rust.",
+      "zh": "VectorCraft 是 ArtCraft 家族的开源矢量插画工具，从零开始用纯 Rust 编写。"
+    },
+    {
+      "type": "p",
+      "en": "It ships as a native universal macOS app (DMG and Homebrew cask) alongside Windows and Linux builds. Development moves fast — v0.14.0 landed in October 2026.",
+      "zh": "macOS 提供 universal 原生版本（DMG 与 Homebrew cask），同时有 Windows 和 Linux 构建。迭代很快——v0.14.0 于 2026 年 10 月发布。"
+    }
+  ],
+  "images": [
+    {
+      "src": "/apps/vectorcraft/shot-3-sheet.png",
+      "alt": "VectorCraft working sheet with vector paths being drawn"
+    },
+    {
+      "src": "/apps/vectorcraft/shot-4-bezier.png",
+      "alt": "Editing Bézier curve handles on a path in VectorCraft"
+    },
+    {
+      "src": "/apps/vectorcraft/shot-7-dimensions.png",
+      "alt": "Dimension annotations on vector artwork in VectorCraft"
+    }
+  ]
+}

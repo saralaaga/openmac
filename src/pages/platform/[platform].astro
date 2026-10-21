@@ -1,45 +1,12 @@
 ---
-import Base from '../../layouts/Base.astro';
-import AppCard from '../../components/AppCard.astro';
-import { appsByPlatform, platforms } from '../../lib/apps';
+import PlatformPage from '../../components/pages/PlatformPage.astro';
+import { livePlatforms } from '../../lib/apps';
 
 export function getStaticPaths() {
-  return platforms.map((p) => ({ params: { platform: p.id }, props: { platform: p } }));
+	return livePlatforms.map((p) => ({ params: { platform: p.id }, props: { platform: p } }));
 }
 
 const { platform } = Astro.props;
-const apps = appsByPlatform(platform.id);
 ---
 
-<Base
-  title={`Open Source Apps for ${platform.name} — OpenMac`}
-  description={platform.tagline}
->
-  <nav class="text-muted text-xs">
-    <a href="/apps" class="cactus-link">apps</a> / <span class="text-global-text">{platform.name.toLowerCase()}</span>
-  </nav>
-  <h1 class="title mt-2 capitalize">open source apps for {platform.name}</h1>
-  <p class="text-muted mt-3 max-w-2xl leading-relaxed">{platform.tagline}</p>
-
-  <div class="mt-4 flex flex-wrap gap-2">
-    {platforms.map((p) => (
-      <a
-        href={`/platform/${p.id}/`}
-        class:list={[
-          'rounded-full border border-dashed px-3 py-1 text-xs',
-          p.id === platform.id
-            ? 'border-accent/60 text-accent'
-            : 'border-zinc-500/40 text-muted hover:border-link/70',
-        ]}
-      >
-        {p.name}
-      </a>
-    ))}
-  </div>
-
-  <div class="mt-8 grid gap-4 sm:grid-cols-2">
-    {apps.length > 0 ? apps.map((app) => <AppCard app={app} />) : (
-      <p class="text-muted text-[13px]">nothing here yet — this platform section is being curated.</p>
-    )}
-  </div>
-</Base>
+<PlatformPage platform={platform} locale="en" />

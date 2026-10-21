@@ -1,0 +1,70 @@
+{
+  "slug": "soundcraft",
+  "name": "SoundCraft",
+  "tagline": "Digital audio workstation — a clean-room Pro Tools alternative.",
+  "repo": "storytold/soundcraft",
+  "website": "https://getartcraft.com/apps/soundcraft",
+  "logo": "/apps/soundcraft/logo.png",
+  "platforms": [
+    "mac"
+  ],
+  "categories": [
+    "audio"
+  ],
+  "tags": [
+    "opensource",
+    "mac",
+    "windows",
+    "linux",
+    "audio",
+    "daw",
+    "rust"
+  ],
+  "license": "Apache-2.0",
+  "install": {
+    "downloads": [
+      {
+        "os": "mac",
+        "label": "soundcraft-0.10.0-macos-universal.dmg",
+        "url": "https://github.com/storytold/soundcraft/releases/download/v0.10.0/soundcraft-0.10.0-macos-universal.dmg",
+        "size": 23282651
+      },
+      {
+        "os": "windows",
+        "label": "soundcraft-0.10.0-windows-x64.msi",
+        "url": "https://github.com/storytold/soundcraft/releases/download/v0.10.0/soundcraft-0.10.0-windows-x64.msi",
+        "size": 11513856
+      },
+      {
+        "os": "linux",
+        "label": "soundcraft-0.10.0-linux-x86_64.AppImage",
+        "url": "https://github.com/storytold/soundcraft/releases/download/v0.10.0/soundcraft-0.10.0-linux-x86_64.AppImage",
+        "size": 15919608
+      }
+    ]
+  },
+  "meta": {
+    "stars": 3492,
+    "lastRelease": "2026-10-20",
+    "updatedAt": "2026-10-21"
+  },
+  "description": "SoundCraft is an open-source, clean-room reimplementation of Avid Pro Tools — a digital audio workstation — written in pure Rust by the ArtCraft team. Like all Crafting Apps it is young and moving fast — check the Install panel for current downloads.",
+  "zh": {
+    "tagline": "数字音频工作站——干净重写的 Pro Tools 替代品。",
+    "description": "SoundCraft 是 ArtCraft 团队用纯 Rust 编写、对 Avid Pro Tools 做干净重写的开源数字音频工作站。和所有 Crafting Apps 一样年轻而迭代飞快——当前下载见安装面板。"
+  },
+  "images": [
+    {
+      "src": "/apps/soundcraft/score.png",
+      "alt": "Music score view in SoundCraft"
+    },
+    {
+      "src": "/apps/soundcraft/mix.png",
+      "alt": "Mixing console in SoundCraft"
+    },
+    {
+      "src": "/apps/soundcraft/midi.png",
+      "alt": "MIDI editing in SoundCraft"
+    }
+  ]
+}

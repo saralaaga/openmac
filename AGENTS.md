@@ -8,6 +8,10 @@ astro dev --background
 
 Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
 
+## Issues
+
+Write GitHub issues in Chinese (title + body) — the owner reviews them directly.
+
 ## Documentation
 
 Full documentation: https://docs.astro.build

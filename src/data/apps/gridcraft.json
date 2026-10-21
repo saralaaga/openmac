@@ -1,0 +1,70 @@
+{
+  "slug": "gridcraft",
+  "name": "GridCraft",
+  "tagline": "Clean-room Excel-style spreadsheet in pure Rust.",
+  "repo": "storytold/gridcraft",
+  "website": "https://getartcraft.com/apps/gridcraft",
+  "logo": "/apps/gridcraft/logo.png",
+  "platforms": [
+    "mac"
+  ],
+  "categories": [
+    "documents"
+  ],
+  "tags": [
+    "opensource",
+    "mac",
+    "windows",
+    "linux",
+    "spreadsheet",
+    "excel",
+    "rust"
+  ],
+  "license": "Apache-2.0",
+  "install": {
+    "downloads": [
+      {
+        "os": "mac",
+        "label": "gridcraft-0.9.0-macos-universal.dmg",
+        "url": "https://github.com/storytold/gridcraft/releases/download/v0.9.0/gridcraft-0.9.0-macos-universal.dmg",
+        "size": 24597443
+      },
+      {
+        "os": "windows",
+        "label": "gridcraft-0.9.0-windows-x64.msi",
+        "url": "https://github.com/storytold/gridcraft/releases/download/v0.9.0/gridcraft-0.9.0-windows-x64.msi",
+        "size": 14217216
+      },
+      {
+        "os": "linux",
+        "label": "gridcraft-0.9.0-linux-x86_64.AppImage",
+        "url": "https://github.com/storytold/gridcraft/releases/download/v0.9.0/gridcraft-0.9.0-linux-x86_64.AppImage",
+        "size": 19028472
+      }
+    ]
+  },
+  "meta": {
+    "stars": 6102,
+    "lastRelease": "2026-10-20",
+    "updatedAt": "2026-10-21"
+  },
+  "description": "GridCraft is an open-source, clean-room spreadsheet in the style of Microsoft Excel, written in pure Rust by the ArtCraft team. Like all Crafting Apps it is young and moving fast — check the Install panel for current downloads.",
+  "zh": {
+    "tagline": "纯 Rust 干净重写的 Excel 风格电子表格。",
+    "description": "GridCraft 是 ArtCraft 团队用纯 Rust 编写、Excel 风格的开源电子表格（干净重写实现）。和所有 Crafting Apps 一样年轻而迭代飞快——当前下载见安装面板。"
+  },
+  "images": [
+    {
+      "src": "/apps/gridcraft/grades-formulas.png",
+      "alt": "GridCraft spreadsheet with grade formulas filled in"
+    },
+    {
+      "src": "/apps/gridcraft/pivot.png",
+      "alt": "Pivot table in GridCraft"
+    },
+    {
+      "src": "/apps/gridcraft/format-chart.png",
+      "alt": "Formatting a chart in GridCraft"
+    }
+  ]
+}

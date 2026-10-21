@@ -35,7 +35,23 @@ async function fetchLatestRelease(repo) {
   });
   if (!res.ok) return null; // repos without releases return 404
   const data = await res.json();
-  return data.published_at?.slice(0, 10) ?? null;
+  const dmgAsset = (data.assets ?? []).find(
+    (a) => /\.dmg$/i.test(a.name) && /macos|mac|osx|darwin/i.test(a.name),
+  );
+  const msiAsset = (data.assets ?? []).find((a) => /windows-x64\.msi$/i.test(a.name));
+  const appImageAsset = (data.assets ?? []).find((a) => /linux-x86_64\.AppImage$/i.test(a.name));
+  const downloads = [dmgAsset, msiAsset, appImageAsset]
+    .filter(Boolean)
+    .map((a) => ({
+      os: /\.dmg$/i.test(a.name) ? 'mac' : /windows/i.test(a.name) ? 'windows' : 'linux',
+      label: a.name,
+      url: a.browser_download_url,
+      size: a.size,
+    }));
+  return {
+    date: data.published_at?.slice(0, 10) ?? null,
+    downloads,
+  };
 }
 
 const files = (await readdir(APPS_DIR)).filter((f) => f.endsWith('.json'));
@@ -48,17 +64,21 @@ for (const file of files) {
 
   try {
     const repo = await fetchRepo(app.repo);
-    const release = (await fetchLatestRelease(app.repo)) ?? repo.pushed_at?.slice(0, 10);
+    const release = await fetchLatestRelease(app.repo);
 
     const next = {
       ...app,
+      logo: app.logo ?? repo.owner?.avatar_url,
       license: repo.license?.spdx_id && repo.license.spdx_id !== 'NOASSERTION'
         ? repo.license.spdx_id
         : app.license,
+      install: release?.downloads?.length
+        ? { ...app.install, downloads: release.downloads }
+        : app.install,
       meta: {
         ...app.meta,
         stars: repo.stargazers_count ?? app.meta.stars,
-        lastRelease: release ?? app.meta.lastRelease,
+        lastRelease: release?.date ?? repo.pushed_at?.slice(0, 10) ?? app.meta.lastRelease,
         updatedAt: today,
       },
     };

@@ -65,8 +65,6 @@ Custom domain `openmac.dev` is already an active zone in the CF account.
 
 ## Notes
 
-- The 4 sample apps (`rectangle`, `maccy`, `stats`, `localsend`) ship with
-  approximate metadata; `npm run sync` (or the Actions cron once pushed to
-  GitHub) refreshes stars/releases from the GitHub API.
-- `public/admin/config.yml` needs the real GitHub username after repo creation.
+- `npm run sync` (or the Actions cron once pushed to GitHub) refreshes
+  stars/releases from the GitHub API for all apps in `src/data/apps/`.
 - Giscus needs the repo public + Discussions enabled → https://giscus.app

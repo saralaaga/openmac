@@ -1,29 +1,12 @@
 ---
-import Base from '../../../layouts/Base.astro';
-import AppCard from '../../../components/AppCard.astro';
-import { appsByCategory, categories } from '../../../lib/apps';
+import CategoryPage from '../../../components/pages/CategoryPage.astro';
+import { liveCategories } from '../../../lib/apps';
 
 export function getStaticPaths() {
-  return categories.map((c) => ({ params: { category: c.id }, props: { category: c } }));
+	return liveCategories.map((c) => ({ params: { category: c.id }, props: { category: c } }));
 }
 
 const { category } = Astro.props;
-const apps = appsByCategory(category.id);
 ---
 
-<Base
-  title={`Open Source ${category.name} Apps — OpenMac`}
-  description={category.description}
->
-  <nav class="text-muted text-xs">
-    <a href="/apps" class="cactus-link">apps</a> / <span class="text-global-text">{category.name.toLowerCase()}</span>
-  </nav>
-  <h1 class="title mt-2 capitalize">open source {category.name.toLowerCase()} apps</h1>
-  <p class="text-muted mt-3 max-w-2xl leading-relaxed">{category.description}</p>
-
-  <div class="mt-8 grid gap-4 sm:grid-cols-2">
-    {apps.length > 0 ? apps.map((app) => <AppCard app={app} />) : (
-      <p class="text-muted text-[13px]">nothing here yet — this category is being curated.</p>
-    )}
-  </div>
-</Base>
+<CategoryPage category={category} locale="en" />

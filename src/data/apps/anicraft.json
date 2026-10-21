@@ -1,0 +1,32 @@
+{
+  "slug": "anicraft",
+  "name": "AniCraft",
+  "tagline": "2D animation editor, written from scratch in pure Rust.",
+  "repo": "storytold/anicraft",
+  "website": "https://getartcraft.com/apps/anicraft",
+  "logo": "/apps/anicraft/logo.png",
+  "platforms": [
+    "mac"
+  ],
+  "categories": [
+    "video"
+  ],
+  "tags": [
+    "opensource",
+    "mac",
+    "animation",
+    "rust"
+  ],
+  "license": "unlicensed",
+  "install": {},
+  "meta": {
+    "stars": 51,
+    "lastRelease": "2026-10-14",
+    "updatedAt": "2026-10-21"
+  },
+  "description": "AniCraft is an open-source 2D animation editor written from scratch in pure Rust by the ArtCraft team. It is at an earlier stage than its sibling apps, so check what the current build offers before relying on it.",
+  "zh": {
+    "tagline": "从零编写的纯 Rust 2D 动画编辑器。",
+    "description": "AniCraft 是 ArtCraft 团队从零开始、用纯 Rust 编写的开源 2D 动画编辑器。它比兄弟项目更早期，使用前请先确认当前构建的功能与许可状态。"
+  }
+}

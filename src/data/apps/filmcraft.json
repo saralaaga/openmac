@@ -1,0 +1,83 @@
+{
+  "slug": "filmcraft",
+  "name": "FilmCraft",
+  "tagline": "Video editing, color and sound.",
+  "repo": "storytold/filmcraft",
+  "website": "https://getartcraft.com/apps/filmcraft",
+  "logo": "/apps/filmcraft/logo.png",
+  "platforms": [
+    "mac"
+  ],
+  "categories": [
+    "video"
+  ],
+  "tags": [
+    "opensource",
+    "mac",
+    "windows",
+    "linux",
+    "video",
+    "editing",
+    "rust"
+  ],
+  "license": "Apache-2.0",
+  "install": {
+    "brew": "filmcraft",
+    "downloads": [
+      {
+        "os": "mac",
+        "label": "filmcraft-0.10.0-macos-universal.dmg",
+        "url": "https://github.com/storytold/filmcraft/releases/download/v0.10.0/filmcraft-0.10.0-macos-universal.dmg",
+        "size": 73974060
+      },
+      {
+        "os": "windows",
+        "label": "filmcraft-0.10.0-windows-x64.msi",
+        "url": "https://github.com/storytold/filmcraft/releases/download/v0.10.0/filmcraft-0.10.0-windows-x64.msi",
+        "size": 57368576
+      },
+      {
+        "os": "linux",
+        "label": "filmcraft-0.10.0-linux-x86_64.AppImage",
+        "url": "https://github.com/storytold/filmcraft/releases/download/v0.10.0/filmcraft-0.10.0-linux-x86_64.AppImage",
+        "size": 66111992
+      }
+    ]
+  },
+  "meta": {
+    "stars": 15440,
+    "lastRelease": "2026-10-21",
+    "updatedAt": "2026-10-21"
+  },
+  "description": "FilmCraft is an open-source nonlinear video editor written from scratch in pure Rust by the ArtCraft team, covering editing, color and sound. It ships as a native universal macOS app (DMG and Homebrew cask) and also runs on Windows and Linux. Like all Crafting Apps it is young and moving fast: v0.10.0 landed in October 2026.",
+  "zh": {
+    "tagline": "视频剪辑、调色与声音。",
+    "description": "FilmCraft 是 ArtCraft 团队从零开始、用纯 Rust 编写的开源非线性视频编辑器，覆盖剪辑、调色与声音。提供 macOS universal 原生版本（DMG 与 Homebrew cask），同时支持 Windows 和 Linux。和所有 Crafting Apps 一样年轻而迭代飞快：v0.10.0 于 2026 年 10 月发布。"
+  },
+  "body": [
+    {
+      "type": "p",
+      "en": "FilmCraft is the ArtCraft family's open-source nonlinear video editor, written from scratch in pure Rust — covering editing, color and sound.",
+      "zh": "FilmCraft 是 ArtCraft 家族的开源非线性视频编辑器，从零开始用纯 Rust 编写——覆盖剪辑、调色与声音。"
+    },
+    {
+      "type": "p",
+      "en": "It ships as a native universal macOS app (DMG and Homebrew cask) alongside Windows and Linux builds. Development moves fast — v0.10.0 landed in October 2026.",
+      "zh": "macOS 提供 universal 原生版本（DMG 与 Homebrew cask），同时有 Windows 和 Linux 构建。迭代很快——v0.10.0 于 2026 年 10 月发布。"
+    }
+  ],
+  "images": [
+    {
+      "src": "/apps/filmcraft/filmcraft-timeline.png",
+      "alt": "FilmCraft multitrack timeline — video and audio tracks, markers, a music track and a loudness meter"
+    },
+    {
+      "src": "/apps/filmcraft/filmcraft-color.png",
+      "alt": "Color grading controls in FilmCraft"
+    },
+    {
+      "src": "/apps/filmcraft/filmcraft-scopes.png",
+      "alt": "Video scopes in FilmCraft during playback"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+---
+import PlatformPage from '../../../components/pages/PlatformPage.astro';
+import { livePlatforms } from '../../../lib/apps';
+
+export function getStaticPaths() {
+	return livePlatforms.map((p) => ({ params: { platform: p.id }, props: { platform: p } }));
+}
+
+const { platform } = Astro.props;
+---
+
+<PlatformPage platform={platform} locale="zh" />

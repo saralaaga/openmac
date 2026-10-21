@@ -1,20 +1,134 @@
 {
   "platforms": [
-    { "id": "mac", "name": "Mac", "tagline": "Open source apps for macOS — menu bar, window management, utilities and more." },
-    { "id": "iphone", "name": "iPhone", "tagline": "Open source apps for iOS, installed via App Store or TestFlight." },
-    { "id": "ipad", "name": "iPad", "tagline": "Open source apps that shine on the big screen." },
-    { "id": "watch", "name": "Apple Watch", "tagline": "A small but growing selection of open source watchOS apps." },
-    { "id": "tv", "name": "Apple TV", "tagline": "Open source apps for tvOS." },
-    { "id": "vision", "name": "Vision", "tagline": "Early open source experiments for Apple Vision." }
+    {
+      "id": "mac",
+      "name": "Mac",
+      "tagline": "Open source apps for macOS — menu bar, window management, utilities and more."
+    },
+    {
+      "id": "iphone",
+      "name": "iPhone",
+      "tagline": "Open source apps for iOS, installed via App Store or TestFlight."
+    },
+    {
+      "id": "ipad",
+      "name": "iPad",
+      "tagline": "Open source apps that shine on the big screen."
+    },
+    {
+      "id": "watch",
+      "name": "Apple Watch",
+      "tagline": "A small but growing selection of open source watchOS apps."
+    },
+    {
+      "id": "tv",
+      "name": "Apple TV",
+      "tagline": "Open source apps for tvOS."
+    },
+    {
+      "id": "vision",
+      "name": "Vision",
+      "tagline": "Early open source experiments for Apple Vision."
+    }
   ],
   "categories": [
-    { "id": "window-management", "name": "Window Management", "description": "Move, resize, tile and snap windows on macOS — keyboard-driven and mouse-friendly." },
-    { "id": "clipboard", "name": "Clipboard", "description": "Clipboard managers and history tools that respect your privacy." },
-    { "id": "menu-bar", "name": "Menu Bar", "description": "Utilities that live in your menu bar and stay out of your way." },
-    { "id": "system-monitoring", "name": "System Monitoring", "description": "Keep an eye on CPU, GPU, memory, network and sensors." },
-    { "id": "file-sharing", "name": "File Sharing", "description": "Send and sync files across devices without the cloud middleman." },
-    { "id": "cross-device", "name": "Cross-Device", "description": "Open source tools that work across your Apple devices — and beyond." },
-    { "id": "screenshots-recording", "name": "Screenshots & Recording", "description": "Capture, annotate and record your screen." },
-    { "id": "input-gestures", "name": "Input & Gestures", "description": "Remap keys, gestures and improve how you type and point." }
+    {
+      "id": "window-management",
+      "name": "Window Management",
+      "description": "Move, resize, tile and snap windows on macOS — keyboard-driven and mouse-friendly.",
+      "name_zh": "窗口管理",
+      "description_zh": "在 macOS 上移动、平铺、贴靠窗口——键盘驱动，也照顾鼠标。"
+    },
+    {
+      "id": "clipboard",
+      "name": "Clipboard",
+      "description": "Clipboard managers and history tools that respect your privacy.",
+      "name_zh": "剪贴板",
+      "description_zh": "尊重隐私的剪贴板历史与管理工具。"
+    },
+    {
+      "id": "menu-bar",
+      "name": "Menu Bar",
+      "description": "Utilities that live in your menu bar and stay out of your way.",
+      "name_zh": "菜单栏",
+      "description_zh": "常驻菜单栏、存在感最低的实用工具。"
+    },
+    {
+      "id": "system-monitoring",
+      "name": "System Monitoring",
+      "description": "Keep an eye on CPU, GPU, memory, network and sensors.",
+      "name_zh": "系统监控",
+      "description_zh": "实时查看 CPU、GPU、内存、网络与传感器。"
+    },
+    {
+      "id": "file-sharing",
+      "name": "File Sharing",
+      "description": "Send and sync files across devices without the cloud middleman.",
+      "name_zh": "文件共享",
+      "description_zh": "无需云中介，跨设备发送与同步文件。"
+    },
+    {
+      "id": "cross-device",
+      "name": "Cross-Device",
+      "description": "Open source tools that work across your Apple devices — and beyond.",
+      "name_zh": "跨设备",
+      "description_zh": "在苹果设备之间（乃至之外）协作的开源工具。"
+    },
+    {
+      "id": "screenshots-recording",
+      "name": "Screenshots & Recording",
+      "description": "Capture, annotate and record your screen.",
+      "name_zh": "截图与录屏",
+      "description_zh": "截屏、标注与录屏。"
+    },
+    {
+      "id": "input-gestures",
+      "name": "Input & Gestures",
+      "description": "Remap keys, gestures and improve how you type and point.",
+      "name_zh": "输入与手势",
+      "description_zh": "重定义按键与手势，改进打字与指针体验。"
+    },
+    {
+      "id": "cad",
+      "name": "CAD & Drafting",
+      "description": "2D drafting and 3D modeling — open source CAD that reads and writes the DXF files you already have.",
+      "name_zh": "CAD 与制图",
+      "description_zh": "2D 制图与 3D 建模——能读写你手头 DXF 文件的开源 CAD。"
+    },
+    {
+      "id": "photo",
+      "name": "Photo & Raw",
+      "description": "Edit, organize and develop photos — layers, masks, raw files and libraries.",
+      "name_zh": "照片与 Raw",
+      "description_zh": "编辑、整理与冲印照片——图层、蒙版、Raw 与图库。"
+    },
+    {
+      "id": "video",
+      "name": "Video & Motion",
+      "description": "Nonlinear video editing, color, sound and motion graphics.",
+      "name_zh": "视频与动效",
+      "description_zh": "非线性剪辑、调色、声音与动效图形。"
+    },
+    {
+      "id": "design",
+      "name": "Illustration & Design",
+      "description": "Vector art, page layout and publishing tools.",
+      "name_zh": "插画与设计",
+      "description_zh": "矢量绘图、版面设计与出版工具。"
+    },
+    {
+      "id": "documents",
+      "name": "Office & PDF",
+      "description": "Word processing, spreadsheets and PDF — read, edit and organize your documents.",
+      "name_zh": "办公与 PDF",
+      "description_zh": "文字处理、电子表格与 PDF——读写整理你的文档。"
+    },
+    {
+      "id": "audio",
+      "name": "Audio & Music",
+      "description": "Record, edit and mix audio — music production and sound design.",
+      "name_zh": "音频与音乐",
+      "description_zh": "录音、剪辑与混音——音乐制作与声音设计。"
+    }
   ]
 }

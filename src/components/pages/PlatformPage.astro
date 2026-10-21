@@ -1,0 +1,55 @@
+---
+import Base from '../../layouts/Base.astro';
+import AppCard from '../../components/AppCard.astro';
+import { appsByPlatform, livePlatforms, platformText, type Locale } from '../../lib/apps';
+import { t } from '../../lib/i18n';
+import type { TaxonomyPlatform } from '../../lib/taxonomy';
+
+interface Props {
+	platform: TaxonomyPlatform;
+	locale: Locale;
+}
+
+const { platform, locale } = Astro.props;
+const T = t(locale);
+const txt = platformText(platform, locale);
+const apps = appsByPlatform(platform.id);
+const base = locale === 'zh' ? '/zh' : '';
+---
+
+<Base
+	locale={locale}
+	title={`Open Source Apps for ${platform.name} — OpenMac`}
+	description={platform.tagline}
+>
+	<nav class="text-muted text-xs">
+		<a href={`${base}/apps`} class="cactus-link">{T.nav.apps.toLowerCase()}</a> / <span class="text-global-text">{txt.name.toLowerCase()}</span>
+	</nav>
+	<h1 class="title mt-2 capitalize">open source apps for {txt.name}</h1>
+	<p class="text-muted mt-3 max-w-2xl leading-relaxed">{txt.tagline}</p>
+
+	<div class="mt-4 flex flex-wrap gap-2">
+		{livePlatforms.map((p) => {
+			const pt = platformText(p, locale);
+			return (
+				<a
+					href={`${base}/platform/${p.id}/`}
+					class:list={[
+						'rounded-full border border-dashed px-3 py-1 text-xs',
+						p.id === platform.id
+							? 'border-accent/60 text-accent'
+							: 'border-zinc-500/40 text-muted hover:border-link/70',
+					]}
+				>
+					{pt.name}
+				</a>
+			);
+		})}
+	</div>
+
+	<div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+		{apps.length > 0 ? apps.map((app) => <AppCard app={app} locale={locale} />) : (
+			<p class="text-muted text-[13px]">{T.platform.nothing}</p>
+		)}
+	</div>
+</Base>

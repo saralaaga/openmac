@@ -1,0 +1,66 @@
+{
+  "slug": "figcraft",
+  "name": "FigCraft",
+  "tagline": "Interface design and prototyping.",
+  "repo": "storytold/figcraft",
+  "website": "https://getartcraft.com/apps/figcraft",
+  "logo": "/apps/figcraft/logo.png",
+  "platforms": [
+    "mac"
+  ],
+  "categories": [
+    "design"
+  ],
+  "tags": [
+    "opensource",
+    "mac",
+    "windows",
+    "linux",
+    "ui",
+    "prototyping",
+    "rust"
+  ],
+  "license": "Apache-2.0",
+  "install": {
+    "downloads": [
+      {
+        "os": "mac",
+        "label": "figcraft-0.8.0-macos-universal.dmg",
+        "url": "https://github.com/storytold/figcraft/releases/download/v0.8.0/figcraft-0.8.0-macos-universal.dmg",
+        "size": 96552942
+      },
+      {
+        "os": "windows",
+        "label": "figcraft-0.8.0-windows-x64.msi",
+        "url": "https://github.com/storytold/figcraft/releases/download/v0.8.0/figcraft-0.8.0-windows-x64.msi",
+        "size": 70709248
+      },
+      {
+        "os": "linux",
+        "label": "figcraft-0.8.0-linux-x86_64.AppImage",
+        "url": "https://github.com/storytold/figcraft/releases/download/v0.8.0/figcraft-0.8.0-linux-x86_64.AppImage",
+        "size": 83532280
+      }
+    ]
+  },
+  "meta": {
+    "stars": 3001,
+    "lastRelease": "2026-10-20",
+    "updatedAt": "2026-10-21"
+  },
+  "description": "FigCraft is an open-source tool for interface design and prototyping — a clean-room take on collaborative design workflows — written in pure Rust by the ArtCraft team. Like all Crafting Apps it is young and moving fast — check the Install panel for current downloads.",
+  "zh": {
+    "tagline": "界面设计与原型。",
+    "description": "FigCraft 是 ArtCraft 团队用纯 Rust 编写的开源界面设计与原型工具，对协作设计工作流做了干净重写。和所有 Crafting Apps 一样年轻而迭代飞快——当前下载见安装面板。"
+  },
+  "images": [
+    {
+      "src": "/apps/figcraft/shot-3-prototype.png",
+      "alt": "Prototyping screen connections in FigCraft"
+    },
+    {
+      "src": "/apps/figcraft/shot-4-devmode.png",
+      "alt": "Dev mode with design specs in FigCraft"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "slug": "wordcraft",
+  "name": "WordCraft",
+  "tagline": "Open source word processor — a clean-room Microsoft Word alternative in pure Rust.",
+  "repo": "storytold/wordcraft",
+  "website": "https://getartcraft.com/apps/wordcraft",
+  "logo": "/apps/wordcraft/logo.png",
+  "platforms": [
+    "mac"
+  ],
+  "categories": [
+    "documents"
+  ],
+  "tags": [
+    "opensource",
+    "mac",
+    "windows",
+    "linux",
+    "word",
+    "documents",
+    "rust"
+  ],
+  "license": "Apache-2.0",
+  "install": {
+    "downloads": [
+      {
+        "os": "mac",
+        "label": "wordcraft-0.9.0-macos-universal.dmg",
+        "url": "https://github.com/storytold/wordcraft/releases/download/v0.9.0/wordcraft-0.9.0-macos-universal.dmg",
+        "size": 110926098
+      },
+      {
+        "os": "windows",
+        "label": "wordcraft-0.9.0-windows-x64.msi",
+        "url": "https://github.com/storytold/wordcraft/releases/download/v0.9.0/wordcraft-0.9.0-windows-x64.msi",
+        "size": 82518016
+      },
+      {
+        "os": "linux",
+        "label": "wordcraft-0.9.0-linux-x86_64.AppImage",
+        "url": "https://github.com/storytold/wordcraft/releases/download/v0.9.0/wordcraft-0.9.0-linux-x86_64.AppImage",
+        "size": 96238072
+      }
+    ]
+  },
+  "meta": {
+    "stars": 15220,
+    "lastRelease": "2026-10-21",
+    "updatedAt": "2026-10-21"
+  },
+  "description": "WordCraft is an open-source, clean-room reimplementation of Microsoft Word, written in pure Rust by the ArtCraft team. Like all Crafting Apps it is young and moving fast — check the Install panel for current downloads.",
+  "zh": {
+    "tagline": "开源文字处理器——纯 Rust 干净重写的 Microsoft Word 替代品。",
+    "description": "WordCraft 是 ArtCraft 团队用纯 Rust 编写、对 Microsoft Word 做干净重写（clean-room）的开源文字处理器。和所有 Crafting Apps 一样年轻而迭代飞快——当前下载见安装面板。"
+  },
+  "images": [
+    {
+      "src": "/apps/wordcraft/layout.png",
+      "alt": "WordCraft page layout view with a document open"
+    },
+    {
+      "src": "/apps/wordcraft/review.png",
+      "alt": "WordCraft review tools for a document"
+    },
+    {
+      "src": "/apps/wordcraft/dark.png",
+      "alt": "WordCraft in dark mode with a document open"
+    }
+  ]
+}

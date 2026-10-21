@@ -1,0 +1,105 @@
+---
+import Base from '../../layouts/Base.astro';
+import AppCard from '../AppCard.astro';
+import Badge from '../Badge.astro';
+import { getCollection } from 'astro:content';
+import { allApps, appText, categoryText, liveCategories, MIN_LISTING_ITEMS, type Locale } from '../../lib/apps';
+import { t } from '../../lib/i18n';
+
+interface Props {
+	locale: Locale;
+}
+
+const { locale } = Astro.props;
+const T = t(locale);
+const base = locale === 'zh' ? '/zh' : '';
+const reviews = (await getCollection('reviews', (r) => !r.data.draft))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 3);
+---
+
+<Base locale={locale} title={T.home.title} description={T.home.description}>
+	<section class="py-12 text-center">
+		<h1 class="text-accent-2 text-3xl font-bold tracking-tight sm:text-4xl">
+			{T.home.h1}
+		</h1>
+		<p class="text-muted mt-2">Free your Mac. It can do anything.</p>
+		<p class="mx-auto mt-5 max-w-xl leading-relaxed">{T.home.intro}</p>
+		<p class="text-muted mt-3 text-xs">{T.home.freshness(allApps.length)}</p>
+		{(liveCategories.length > 0 || reviews.length > 0) && (
+			<div class="mt-8 flex items-center justify-center gap-3">
+				{liveCategories.length > 0 && (
+					<a href={`${base}/apps`} class="text-global-bg rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold hover:opacity-85">
+						{locale === 'zh' ? `浏览 ${allApps.length}+ 个应用` : `Browse ${allApps.length}+ apps`}
+					</a>
+				)}
+				{reviews.length > 0 && (
+					<a href={`${base}/reviews`} class="cactus-link rounded-lg border border-dashed border-zinc-500/40 px-5 py-2.5 text-sm hover:border-link/70">
+						{T.home.latestReviews}
+					</a>
+				)}
+			</div>
+		)}
+	</section>
+
+	<section class="py-6">
+		<div class="grid gap-3 sm:grid-cols-3">
+			{T.home.usp.map((u) => (
+				<div class="card-surface p-4">
+					<h3 class="text-accent-2 text-[13px] font-semibold">{u.title}</h3>
+					<p class="text-muted mt-1 text-xs leading-relaxed">{u.body}</p>
+				</div>
+			))}
+		</div>
+	</section>
+
+	{liveCategories.length > 0 && (
+		<section class="py-6">
+			<div class="flex items-center justify-between">
+				<h2 class="title">{T.home.categories}</h2>
+				<a href={`${base}/apps`} class="cactus-link text-muted text-xs">{T.home.allApps}</a>
+			</div>
+			<div class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+				{liveCategories.map((c) => {
+					const ct = categoryText(c, locale);
+					return (
+						<a href={`${base}/apps/category/${c.id}/`} class="card-surface p-3 text-center">
+							<span class="block text-[13px] font-medium">{ct.name}</span>
+							<span class="text-muted mt-1 line-clamp-2 block text-[11px] leading-snug">{ct.description}</span>
+						</a>
+					);
+				})}
+			</div>
+		</section>
+	)}
+
+	{allApps.length >= MIN_LISTING_ITEMS && (
+		<section class="py-6">
+			<h2 class="title">{T.home.mostStarred}</h2>
+			<div class="mt-4 grid gap-4 sm:grid-cols-2">
+				{allApps.slice(0, 4).map((app) => <AppCard app={app} locale={locale} />)}
+			</div>
+		</section>
+	)}
+
+	{reviews.length > 0 && (
+		<section class="py-6">
+			<div class="flex items-center justify-between">
+				<h2 class="title">{T.home.latestReviews}</h2>
+				<a href={`${base}/reviews`} class="cactus-link text-muted text-xs">{T.home.allReviews}</a>
+			</div>
+			<div class="mt-4 grid gap-4 sm:grid-cols-3">
+				{reviews.map((r) => (
+					<a href={`/reviews/${r.id}/`} class="card-surface block p-5">
+						{r.data.score !== undefined && <Badge label={`${r.data.score}/10`} tone="green" />}
+						<h3 class="text-accent-2 mt-2 font-semibold tracking-tight">{r.data.title}</h3>
+						<p class="text-muted mt-1 line-clamp-2">{r.data.description}</p>
+						<time class="text-muted mt-3 block text-xs" datetime={r.data.pubDate.toISOString()}>
+							{r.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+						</time>
+					</a>
+				))}
+			</div>
+		</section>
+	)}
+</Base>

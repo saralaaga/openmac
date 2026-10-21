@@ -1,0 +1,12 @@
+---
+import AppDetail from '../../../components/pages/AppDetail.astro';
+import { allApps } from '../../../lib/apps';
+
+export function getStaticPaths() {
+	return allApps.map((app) => ({ params: { slug: app.slug }, props: { app } }));
+}
+
+const { app } = Astro.props;
+---
+
+<AppDetail app={app} locale="zh" />

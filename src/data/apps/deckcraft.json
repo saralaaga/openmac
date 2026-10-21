@@ -1,0 +1,70 @@
+{
+  "slug": "deckcraft",
+  "name": "DeckCraft",
+  "tagline": "Presentations and slide shows — a clean-room PowerPoint alternative.",
+  "repo": "storytold/deckcraft",
+  "website": "https://getartcraft.com/apps/deckcraft",
+  "logo": "/apps/deckcraft/logo.png",
+  "platforms": [
+    "mac"
+  ],
+  "categories": [
+    "design"
+  ],
+  "tags": [
+    "opensource",
+    "mac",
+    "windows",
+    "linux",
+    "presentations",
+    "slides",
+    "rust"
+  ],
+  "license": "Apache-2.0",
+  "install": {
+    "downloads": [
+      {
+        "os": "mac",
+        "label": "deckcraft-0.9.0-macos-universal.dmg",
+        "url": "https://github.com/storytold/deckcraft/releases/download/v0.9.0/deckcraft-0.9.0-macos-universal.dmg",
+        "size": 87014086
+      },
+      {
+        "os": "windows",
+        "label": "deckcraft-0.9.0-windows-x64.msi",
+        "url": "https://github.com/storytold/deckcraft/releases/download/v0.9.0/deckcraft-0.9.0-windows-x64.msi",
+        "size": 63811584
+      },
+      {
+        "os": "linux",
+        "label": "deckcraft-0.9.0-linux-x86_64.AppImage",
+        "url": "https://github.com/storytold/deckcraft/releases/download/v0.9.0/deckcraft-0.9.0-linux-x86_64.AppImage",
+        "size": 76691960
+      }
+    ]
+  },
+  "meta": {
+    "stars": 4031,
+    "lastRelease": "2026-10-21",
+    "updatedAt": "2026-10-21"
+  },
+  "description": "DeckCraft is an open-source reimplementation of Microsoft PowerPoint for presentations and slide shows, written in pure Rust by the ArtCraft team. Like all Crafting Apps it is young and moving fast — check the Install panel for current downloads.",
+  "zh": {
+    "tagline": "演示与幻灯片——干净重写的 PowerPoint 替代品。",
+    "description": "DeckCraft 是 ArtCraft 团队用纯 Rust 编写、面向演示与幻灯片场景的 Microsoft PowerPoint 开源复刻。和所有 Crafting Apps 一样年轻而迭代飞快——当前下载见安装面板。"
+  },
+  "images": [
+    {
+      "src": "/apps/deckcraft/editor.png",
+      "alt": "DeckCraft slide editor with a presentation open"
+    },
+    {
+      "src": "/apps/deckcraft/slide-sorter.png",
+      "alt": "Slide sorter view in DeckCraft"
+    },
+    {
+      "src": "/apps/deckcraft/format-pane.png",
+      "alt": "DeckCraft formatting pane for slide elements"
+    }
+  ]
+}

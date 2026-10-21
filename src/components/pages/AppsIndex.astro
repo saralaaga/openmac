@@ -1,0 +1,55 @@
+---
+import Base from '../../layouts/Base.astro';
+import AppCard from '../AppCard.astro';
+import { allApps, categoryText, liveCategories, type Locale } from '../../lib/apps';
+import { t } from '../../lib/i18n';
+
+interface Props {
+	locale: Locale;
+}
+
+const { locale } = Astro.props;
+const T = t(locale);
+const base = locale === 'zh' ? '/zh' : '';
+---
+
+<Base title={`${T.apps.title} — OpenMac`} description="Browse the curated open source app directory for the Apple ecosystem.">
+	<h1 class="title">{T.apps.title}</h1>
+	<p class="text-muted mt-2">{allApps.length > 0 ? T.apps.count(allApps.length) : T.apps.empty}</p>
+
+	<div id="filters" class="mt-6 flex flex-wrap gap-2">
+		<button class="filter-chip rounded-full border border-dashed border-zinc-500/40 px-3 py-1 text-xs" data-cat="all">
+			all
+		</button>
+		{liveCategories.map((c) => (
+			<button class="filter-chip rounded-full border border-dashed border-zinc-500/40 px-3 py-1 text-xs" data-cat={c.id}>
+				{categoryText(c, locale).name}
+			</button>
+		))}
+	</div>
+
+	<div id="grid" class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+		{allApps.length > 0 ? allApps.map((app) => <AppCard app={app} locale={locale} />) : (
+			<p class="text-muted text-[13px]">{T.apps.empty}</p>
+		)}
+	</div>
+</Base>
+
+<script>
+	const chips = document.querySelectorAll('.filter-chip');
+	const cards = document.querySelectorAll('#grid > a');
+
+	chips.forEach((chip) => {
+		chip.addEventListener('click', () => {
+			const cat = chip.getAttribute('data-cat');
+			chips.forEach((c) => {
+				c.classList.remove('text-accent', 'border-accent/60');
+			});
+			chip.classList.add('text-accent', 'border-accent/60');
+			cards.forEach((card) => {
+				const cats = (card.getAttribute('data-cats') ?? '').split(',');
+				card.classList.toggle('hidden', cat !== 'all' && !cats.includes(cat ?? ''));
+			});
+		});
+	});
+</script>

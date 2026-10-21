@@ -1,26 +1,56 @@
 ---
 import '../styles/global.css';
 import Logo from '../components/Logo.astro';
+import { COMMENTS_ENABLED } from '../lib/features';
+import { getCollection } from 'astro:content';
+import { liveCategories } from '../lib/apps';
+import { t, type Locale } from '../lib/i18n';
 
 interface Props {
 	title?: string;
 	description?: string;
+	locale?: Locale;
 }
 
 const {
 	title = 'OpenMac — Free your Mac. It can do anything.',
 	description = 'A curated, hands-on directory of open source apps for the Apple ecosystem — Mac, iPhone, iPad, Watch, TV and Vision. Tested by humans, metadata always fresh.',
+	locale = 'en',
 } = Astro.props;
 
+	const T = t(locale);
+	const site = Astro.site ?? new URL('https://openmac.dev');
+	const enPath = Astro.url.pathname.replace(/^\/zh/, '') || '/';
+	const zhPath = enPath === '/' ? '/zh/' : `/zh${enPath}`;
+	const hasZh = enPath === '/' || enPath === '/apps' || enPath.startsWith('/apps/');
+	const ogUrl = new URL(Astro.url.pathname, site).href;
+	// 结构化数据只放首页；站内搜索是 Pagefind 客户端渲染，不支持 ?q= 参数，故不放 SearchAction
+	const isHome = ['/', '/zh', '/zh/'].includes(Astro.url.pathname);
+	const jsonLd = {
+		'@context': 'https://schema.org',
+		'@graph': [
+			{ '@type': 'WebSite', name: 'OpenMac', url: site.href },
+			{
+				'@type': 'Organization',
+				name: 'OpenMac',
+				url: site.href,
+				logo: new URL('/apps/photocraft/logo.png', site).href,
+			},
+		],
+	};
+
+	const hasApps = liveCategories.length > 0;
+	const hasReviews = (await getCollection('reviews', (r) => !r.data.draft)).length > 0;
+	const navBase = locale === 'zh' ? '/zh' : '';
 	const nav = [
-		{ path: '/apps', title: 'Apps' },
-		{ path: '/reviews', title: 'Reviews' },
-		{ path: '/search', title: 'Search' },
-		{ path: '/about', title: 'About' },
+		...(hasApps ? [{ path: `${navBase}/apps`, title: T.nav.apps }] : []),
+		...(hasReviews ? [{ path: `${navBase}/reviews`, title: T.nav.reviews }] : []),
+		{ path: '/search', title: T.nav.search },
+		{ path: '/about', title: T.nav.about },
 	];
 ---
 
-<html lang="en" class="scroll-smooth">
+<html lang={locale === 'zh' ? 'zh-CN' : 'en'} class="scroll-smooth">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -30,6 +60,16 @@ const {
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<link rel="alternate" type="application/rss+xml" title="OpenMac" href="/rss.xml" />
+		<link rel="canonical" href={new URL(Astro.url.pathname, site).href} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={ogUrl} />
+		<meta property="og:site_name" content="OpenMac" />
+		<meta property="og:image" content={new URL('/og.png', site).href} />
+		{isHome && <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+		{hasZh && <link rel="alternate" hreflang="en" href={new URL(enPath === '/' ? '/' : enPath, site).href} />}
+		{hasZh && <link rel="alternate" hreflang="zh-CN" href={new URL(zhPath, site).href} />}
 		<script is:inline>
 			// Cactus theme strategy: dark by default, persisted in localStorage
 			const theme = localStorage.getItem('theme') ?? 'dark';
@@ -67,7 +107,17 @@ const {
 			>
 				<span data-theme-icon>◐</span>
 			</button>
-			<div id="auth-box" class="flex items-center gap-2 text-xs"></div>
+			{hasZh && (
+				<a
+					id="lang-switch"
+					href={locale === 'zh' ? enPath : zhPath}
+					aria-label="Switch language"
+					class="text-muted rounded border border-dashed border-zinc-500/40 px-2 py-1 text-xs hover:border-link/70 hover:text-global-text"
+				>
+					{T.langSwitch}
+				</a>
+			)}
+			{COMMENTS_ENABLED && <div id="auth-box" class="flex items-center gap-2 text-xs"></div>}
 		</header>
 
 		<main id="main" class="flex-1">
@@ -83,8 +133,9 @@ const {
 			</div>
 		</footer>
 
-		<script>
-			import { createAuthClient } from 'better-auth/client';
+			{COMMENTS_ENABLED && (
+			<script>
+				import { createAuthClient } from 'better-auth/client';
 
 			const authClient = createAuthClient();
 			const box = document.getElementById('auth-box');
@@ -110,8 +161,9 @@ const {
 					box.innerHTML = '';
 				}
 			}
-			renderAuth();
+				renderAuth();
 		</script>
+			)}
 
 		<script>
 			document.getElementById('theme-toggle')?.addEventListener('click', () => {
