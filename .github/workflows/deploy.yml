@@ -1,0 +1,42 @@
+name: Deploy to Cloudflare Pages
+
+# 每日 sync-metadata（03:00 UTC）提交数据后 push 触发；
+# 任何推到 main 的内容变更也会自动部署；也可手动触发。
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# 部署排队执行，不并行
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    # CLOUDFLARE_API_TOKEN 未配置时跳过（配置后自动启用）
+    if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: dad5acc42b3eb97b72f90f9c825339fe
+          command: pages deploy dist --project-name openmac --branch main
