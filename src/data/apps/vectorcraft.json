@@ -45,9 +45,9 @@
     ]
   },
   "meta": {
-    "stars": 10258,
+    "stars": 10362,
     "lastRelease": "2026-10-21",
-    "updatedAt": "2026-10-21"
+    "updatedAt": "2026-10-22"
   },
   "description": "VectorCraft is an open-source vector art tool written from scratch in pure Rust by the ArtCraft team. It ships as a native universal macOS app (DMG and Homebrew cask) and also runs on Windows and Linux. Like all Crafting Apps it is young and moving fast: v0.14.0 landed in October 2026.",
   "zh": {

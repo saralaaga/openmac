@@ -44,9 +44,9 @@
     ]
   },
   "meta": {
-    "stars": 15220,
+    "stars": 15411,
     "lastRelease": "2026-10-21",
-    "updatedAt": "2026-10-21"
+    "updatedAt": "2026-10-22"
   },
   "description": "WordCraft is an open-source, clean-room reimplementation of Microsoft Word, written in pure Rust by the ArtCraft team. Like all Crafting Apps it is young and moving fast — check the Install panel for current downloads.",
   "zh": {

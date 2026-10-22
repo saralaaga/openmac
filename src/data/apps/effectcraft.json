@@ -26,28 +26,28 @@
     "downloads": [
       {
         "os": "mac",
-        "label": "effectcraft-0.13.0-macos-universal.dmg",
-        "url": "https://github.com/storytold/effectcraft/releases/download/v0.13.0/effectcraft-0.13.0-macos-universal.dmg",
-        "size": 65899416
+        "label": "effectcraft-0.14.0-macos-universal.dmg",
+        "url": "https://github.com/storytold/effectcraft/releases/download/v0.14.0/effectcraft-0.14.0-macos-universal.dmg",
+        "size": 65896289
       },
       {
         "os": "windows",
-        "label": "effectcraft-0.13.0-windows-x64.msi",
-        "url": "https://github.com/storytold/effectcraft/releases/download/v0.13.0/effectcraft-0.13.0-windows-x64.msi",
-        "size": 51105792
+        "label": "effectcraft-0.14.0-windows-x64.msi",
+        "url": "https://github.com/storytold/effectcraft/releases/download/v0.14.0/effectcraft-0.14.0-windows-x64.msi",
+        "size": 51154944
       },
       {
         "os": "linux",
-        "label": "effectcraft-0.13.0-linux-x86_64.AppImage",
-        "url": "https://github.com/storytold/effectcraft/releases/download/v0.13.0/effectcraft-0.13.0-linux-x86_64.AppImage",
-        "size": 59451896
+        "label": "effectcraft-0.14.0-linux-x86_64.AppImage",
+        "url": "https://github.com/storytold/effectcraft/releases/download/v0.14.0/effectcraft-0.14.0-linux-x86_64.AppImage",
+        "size": 59460088
       }
     ]
   },
   "meta": {
-    "stars": 7574,
+    "stars": 7649,
     "lastRelease": "2026-10-21",
-    "updatedAt": "2026-10-21"
+    "updatedAt": "2026-10-22"
   },
   "description": "EffectCraft is an open-source motion graphics and compositing tool written from scratch in pure Rust by the ArtCraft team. It ships as a native universal macOS app (DMG and Homebrew cask) and also runs on Windows and Linux. Like all Crafting Apps it is young and moving fast: v0.13.0 landed in October 2026.",
   "zh": {

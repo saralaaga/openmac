@@ -25,28 +25,28 @@
     "downloads": [
       {
         "os": "mac",
-        "label": "gridcraft-0.9.0-macos-universal.dmg",
-        "url": "https://github.com/storytold/gridcraft/releases/download/v0.9.0/gridcraft-0.9.0-macos-universal.dmg",
-        "size": 24597443
+        "label": "gridcraft-0.10.0-macos-universal.dmg",
+        "url": "https://github.com/storytold/gridcraft/releases/download/v0.10.0/gridcraft-0.10.0-macos-universal.dmg",
+        "size": 24598976
       },
       {
         "os": "windows",
-        "label": "gridcraft-0.9.0-windows-x64.msi",
-        "url": "https://github.com/storytold/gridcraft/releases/download/v0.9.0/gridcraft-0.9.0-windows-x64.msi",
-        "size": 14217216
+        "label": "gridcraft-0.10.0-windows-x64.msi",
+        "url": "https://github.com/storytold/gridcraft/releases/download/v0.10.0/gridcraft-0.10.0-windows-x64.msi",
+        "size": 14209024
       },
       {
         "os": "linux",
-        "label": "gridcraft-0.9.0-linux-x86_64.AppImage",
-        "url": "https://github.com/storytold/gridcraft/releases/download/v0.9.0/gridcraft-0.9.0-linux-x86_64.AppImage",
-        "size": 19028472
+        "label": "gridcraft-0.10.0-linux-x86_64.AppImage",
+        "url": "https://github.com/storytold/gridcraft/releases/download/v0.10.0/gridcraft-0.10.0-linux-x86_64.AppImage",
+        "size": 19024376
       }
     ]
   },
   "meta": {
-    "stars": 6102,
-    "lastRelease": "2026-10-20",
-    "updatedAt": "2026-10-21"
+    "stars": 6186,
+    "lastRelease": "2026-10-21",
+    "updatedAt": "2026-10-22"
   },
   "description": "GridCraft is an open-source, clean-room spreadsheet in the style of Microsoft Excel, written in pure Rust by the ArtCraft team. Like all Crafting Apps it is young and moving fast — check the Install panel for current downloads.",
   "zh": {

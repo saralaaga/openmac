@@ -44,9 +44,9 @@
     ]
   },
   "meta": {
-    "stars": 4031,
+    "stars": 4095,
     "lastRelease": "2026-10-21",
-    "updatedAt": "2026-10-21"
+    "updatedAt": "2026-10-22"
   },
   "description": "DeckCraft is an open-source reimplementation of Microsoft PowerPoint for presentations and slide shows, written in pure Rust by the ArtCraft team. Like all Crafting Apps it is young and moving fast — check the Install panel for current downloads.",
   "zh": {

@@ -25,28 +25,28 @@
     "downloads": [
       {
         "os": "mac",
-        "label": "figcraft-0.8.0-macos-universal.dmg",
-        "url": "https://github.com/storytold/figcraft/releases/download/v0.8.0/figcraft-0.8.0-macos-universal.dmg",
-        "size": 96552942
+        "label": "figcraft-0.9.0-macos-universal.dmg",
+        "url": "https://github.com/storytold/figcraft/releases/download/v0.9.0/figcraft-0.9.0-macos-universal.dmg",
+        "size": 96815556
       },
       {
         "os": "windows",
-        "label": "figcraft-0.8.0-windows-x64.msi",
-        "url": "https://github.com/storytold/figcraft/releases/download/v0.8.0/figcraft-0.8.0-windows-x64.msi",
-        "size": 70709248
+        "label": "figcraft-0.9.0-windows-x64.msi",
+        "url": "https://github.com/storytold/figcraft/releases/download/v0.9.0/figcraft-0.9.0-windows-x64.msi",
+        "size": 70742016
       },
       {
         "os": "linux",
-        "label": "figcraft-0.8.0-linux-x86_64.AppImage",
-        "url": "https://github.com/storytold/figcraft/releases/download/v0.8.0/figcraft-0.8.0-linux-x86_64.AppImage",
-        "size": 83532280
+        "label": "figcraft-0.9.0-linux-x86_64.AppImage",
+        "url": "https://github.com/storytold/figcraft/releases/download/v0.9.0/figcraft-0.9.0-linux-x86_64.AppImage",
+        "size": 83573240
       }
     ]
   },
   "meta": {
-    "stars": 3001,
-    "lastRelease": "2026-10-20",
-    "updatedAt": "2026-10-21"
+    "stars": 3087,
+    "lastRelease": "2026-10-21",
+    "updatedAt": "2026-10-22"
   },
   "description": "FigCraft is an open-source tool for interface design and prototyping — a clean-room take on collaborative design workflows — written in pure Rust by the ArtCraft team. Like all Crafting Apps it is young and moving fast — check the Install panel for current downloads.",
   "zh": {
