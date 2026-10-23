@@ -26,28 +26,28 @@
     "downloads": [
       {
         "os": "mac",
-        "label": "cadcraft-0.10.0-macos-universal.dmg",
-        "url": "https://github.com/storytold/cadcraft/releases/download/v0.10.0/cadcraft-0.10.0-macos-universal.dmg",
-        "size": 67628069
+        "label": "cadcraft-0.12.0-macos-universal.dmg",
+        "url": "https://github.com/storytold/cadcraft/releases/download/v0.12.0/cadcraft-0.12.0-macos-universal.dmg",
+        "size": 67635901
       },
       {
         "os": "windows",
-        "label": "cadcraft-0.10.0-windows-x64.msi",
-        "url": "https://github.com/storytold/cadcraft/releases/download/v0.10.0/cadcraft-0.10.0-windows-x64.msi",
-        "size": 49143808
+        "label": "cadcraft-0.12.0-windows-x64.msi",
+        "url": "https://github.com/storytold/cadcraft/releases/download/v0.12.0/cadcraft-0.12.0-windows-x64.msi",
+        "size": 49221632
       },
       {
         "os": "linux",
-        "label": "cadcraft-0.10.0-linux-x86_64.AppImage",
-        "url": "https://github.com/storytold/cadcraft/releases/download/v0.10.0/cadcraft-0.10.0-linux-x86_64.AppImage",
-        "size": 58116600
+        "label": "cadcraft-0.12.0-linux-x86_64.AppImage",
+        "url": "https://github.com/storytold/cadcraft/releases/download/v0.12.0/cadcraft-0.12.0-linux-x86_64.AppImage",
+        "size": 58202616
       }
     ]
   },
   "meta": {
-    "stars": 6363,
-    "lastRelease": "2026-10-21",
-    "updatedAt": "2026-10-22"
+    "stars": 6510,
+    "lastRelease": "2026-10-23",
+    "updatedAt": "2026-10-23"
   },
   "body": [
     {

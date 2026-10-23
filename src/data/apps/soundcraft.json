@@ -25,28 +25,28 @@
     "downloads": [
       {
         "os": "mac",
-        "label": "soundcraft-0.11.0-macos-universal.dmg",
-        "url": "https://github.com/storytold/soundcraft/releases/download/v0.11.0/soundcraft-0.11.0-macos-universal.dmg",
-        "size": 23278424
+        "label": "soundcraft-0.12.1-macos-universal.dmg",
+        "url": "https://github.com/storytold/soundcraft/releases/download/v0.12.1/soundcraft-0.12.1-macos-universal.dmg",
+        "size": 23429573
       },
       {
         "os": "windows",
-        "label": "soundcraft-0.11.0-windows-x64.msi",
-        "url": "https://github.com/storytold/soundcraft/releases/download/v0.11.0/soundcraft-0.11.0-windows-x64.msi",
-        "size": 11505664
+        "label": "soundcraft-0.12.1-windows-x64.msi",
+        "url": "https://github.com/storytold/soundcraft/releases/download/v0.12.1/soundcraft-0.12.1-windows-x64.msi",
+        "size": 11526144
       },
       {
         "os": "linux",
-        "label": "soundcraft-0.11.0-linux-x86_64.AppImage",
-        "url": "https://github.com/storytold/soundcraft/releases/download/v0.11.0/soundcraft-0.11.0-linux-x86_64.AppImage",
-        "size": 15919608
+        "label": "soundcraft-0.12.1-linux-x86_64.AppImage",
+        "url": "https://github.com/storytold/soundcraft/releases/download/v0.12.1/soundcraft-0.12.1-linux-x86_64.AppImage",
+        "size": 15915512
       }
     ]
   },
   "meta": {
-    "stars": 3534,
-    "lastRelease": "2026-10-21",
-    "updatedAt": "2026-10-22"
+    "stars": 3600,
+    "lastRelease": "2026-10-22",
+    "updatedAt": "2026-10-23"
   },
   "description": "SoundCraft is an open-source, clean-room reimplementation of Avid Pro Tools — a digital audio workstation — written in pure Rust by the ArtCraft team. Like all Crafting Apps it is young and moving fast — check the Install panel for current downloads.",
   "zh": {

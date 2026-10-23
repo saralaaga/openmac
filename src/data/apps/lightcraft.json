@@ -26,28 +26,28 @@
     "downloads": [
       {
         "os": "mac",
-        "label": "lightcraft-0.11.0-macos-universal.dmg",
-        "url": "https://github.com/storytold/lightcraft/releases/download/v0.11.0/lightcraft-0.11.0-macos-universal.dmg",
-        "size": 113612361
+        "label": "lightcraft-0.13.0-macos-universal.dmg",
+        "url": "https://github.com/storytold/lightcraft/releases/download/v0.13.0/lightcraft-0.13.0-macos-universal.dmg",
+        "size": 114324255
       },
       {
         "os": "windows",
-        "label": "lightcraft-0.11.0-windows-x64.msi",
-        "url": "https://github.com/storytold/lightcraft/releases/download/v0.11.0/lightcraft-0.11.0-windows-x64.msi",
-        "size": 90320896
+        "label": "lightcraft-0.13.0-windows-x64.msi",
+        "url": "https://github.com/storytold/lightcraft/releases/download/v0.13.0/lightcraft-0.13.0-windows-x64.msi",
+        "size": 90947584
       },
       {
         "os": "linux",
-        "label": "lightcraft-0.11.0-linux-x86_64.AppImage",
-        "url": "https://github.com/storytold/lightcraft/releases/download/v0.11.0/lightcraft-0.11.0-linux-x86_64.AppImage",
-        "size": 103832056
+        "label": "lightcraft-0.13.0-linux-x86_64.AppImage",
+        "url": "https://github.com/storytold/lightcraft/releases/download/v0.13.0/lightcraft-0.13.0-linux-x86_64.AppImage",
+        "size": 104401400
       }
     ]
   },
   "meta": {
-    "stars": 14247,
-    "lastRelease": "2026-10-21",
-    "updatedAt": "2026-10-22"
+    "stars": 14374,
+    "lastRelease": "2026-10-23",
+    "updatedAt": "2026-10-23"
   },
   "description": "LightCraft is an open-source, non-destructive photo editor written from scratch in pure Rust by the ArtCraft team, covering photo library management and raw development. It ships as a native universal macOS app (DMG and Homebrew cask) and also runs on Windows and Linux. Like all Crafting Apps it is young and moving fast: v0.10.0 landed in October 2026.",
   "zh": {

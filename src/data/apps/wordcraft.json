@@ -25,28 +25,28 @@
     "downloads": [
       {
         "os": "mac",
-        "label": "wordcraft-0.9.0-macos-universal.dmg",
-        "url": "https://github.com/storytold/wordcraft/releases/download/v0.9.0/wordcraft-0.9.0-macos-universal.dmg",
-        "size": 110926098
+        "label": "wordcraft-0.10.0-macos-universal.dmg",
+        "url": "https://github.com/storytold/wordcraft/releases/download/v0.10.0/wordcraft-0.10.0-macos-universal.dmg",
+        "size": 112357462
       },
       {
         "os": "windows",
-        "label": "wordcraft-0.9.0-windows-x64.msi",
-        "url": "https://github.com/storytold/wordcraft/releases/download/v0.9.0/wordcraft-0.9.0-windows-x64.msi",
-        "size": 82518016
+        "label": "wordcraft-0.10.0-windows-x64.msi",
+        "url": "https://github.com/storytold/wordcraft/releases/download/v0.10.0/wordcraft-0.10.0-windows-x64.msi",
+        "size": 83255296
       },
       {
         "os": "linux",
-        "label": "wordcraft-0.9.0-linux-x86_64.AppImage",
-        "url": "https://github.com/storytold/wordcraft/releases/download/v0.9.0/wordcraft-0.9.0-linux-x86_64.AppImage",
-        "size": 96238072
+        "label": "wordcraft-0.10.0-linux-x86_64.AppImage",
+        "url": "https://github.com/storytold/wordcraft/releases/download/v0.10.0/wordcraft-0.10.0-linux-x86_64.AppImage",
+        "size": 97229304
       }
     ]
   },
   "meta": {
-    "stars": 15411,
-    "lastRelease": "2026-10-21",
-    "updatedAt": "2026-10-22"
+    "stars": 15606,
+    "lastRelease": "2026-10-22",
+    "updatedAt": "2026-10-23"
   },
   "description": "WordCraft is an open-source, clean-room reimplementation of Microsoft Word, written in pure Rust by the ArtCraft team. Like all Crafting Apps it is young and moving fast — check the Install panel for current downloads.",
   "zh": {

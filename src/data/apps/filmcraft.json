@@ -26,28 +26,28 @@
     "downloads": [
       {
         "os": "mac",
-        "label": "filmcraft-0.10.0-macos-universal.dmg",
-        "url": "https://github.com/storytold/filmcraft/releases/download/v0.10.0/filmcraft-0.10.0-macos-universal.dmg",
-        "size": 73974060
+        "label": "filmcraft-0.12.0-macos-universal.dmg",
+        "url": "https://github.com/storytold/filmcraft/releases/download/v0.12.0/filmcraft-0.12.0-macos-universal.dmg",
+        "size": 73991251
       },
       {
         "os": "windows",
-        "label": "filmcraft-0.10.0-windows-x64.msi",
-        "url": "https://github.com/storytold/filmcraft/releases/download/v0.10.0/filmcraft-0.10.0-windows-x64.msi",
-        "size": 57368576
+        "label": "filmcraft-0.12.0-windows-x64.msi",
+        "url": "https://github.com/storytold/filmcraft/releases/download/v0.12.0/filmcraft-0.12.0-windows-x64.msi",
+        "size": 57393152
       },
       {
         "os": "linux",
-        "label": "filmcraft-0.10.0-linux-x86_64.AppImage",
-        "url": "https://github.com/storytold/filmcraft/releases/download/v0.10.0/filmcraft-0.10.0-linux-x86_64.AppImage",
-        "size": 66111992
+        "label": "filmcraft-0.12.0-linux-x86_64.AppImage",
+        "url": "https://github.com/storytold/filmcraft/releases/download/v0.12.0/filmcraft-0.12.0-linux-x86_64.AppImage",
+        "size": 66132472
       }
     ]
   },
   "meta": {
-    "stars": 15624,
-    "lastRelease": "2026-10-21",
-    "updatedAt": "2026-10-22"
+    "stars": 15806,
+    "lastRelease": "2026-10-23",
+    "updatedAt": "2026-10-23"
   },
   "description": "FilmCraft is an open-source nonlinear video editor written from scratch in pure Rust by the ArtCraft team, covering editing, color and sound. It ships as a native universal macOS app (DMG and Homebrew cask) and also runs on Windows and Linux. Like all Crafting Apps it is young and moving fast: v0.10.0 landed in October 2026.",
   "zh": {

@@ -26,28 +26,28 @@
     "downloads": [
       {
         "os": "mac",
-        "label": "photocraft-0.12.0-macos-universal.dmg",
-        "url": "https://github.com/storytold/photocraft/releases/download/v0.12.0/photocraft-0.12.0-macos-universal.dmg",
-        "size": 93952770
+        "label": "photocraft-0.14.0-macos-universal.dmg",
+        "url": "https://github.com/storytold/photocraft/releases/download/v0.14.0/photocraft-0.14.0-macos-universal.dmg",
+        "size": 95578705
       },
       {
         "os": "windows",
-        "label": "photocraft-0.12.0-windows-x64.msi",
-        "url": "https://github.com/storytold/photocraft/releases/download/v0.12.0/photocraft-0.12.0-windows-x64.msi",
-        "size": 71860224
+        "label": "photocraft-0.14.0-windows-x64.msi",
+        "url": "https://github.com/storytold/photocraft/releases/download/v0.14.0/photocraft-0.14.0-windows-x64.msi",
+        "size": 72843264
       },
       {
         "os": "linux",
-        "label": "photocraft-0.12.0-linux-x86_64.AppImage",
-        "url": "https://github.com/storytold/photocraft/releases/download/v0.12.0/photocraft-0.12.0-linux-x86_64.AppImage",
-        "size": 80026104
+        "label": "photocraft-0.14.0-linux-x86_64.AppImage",
+        "url": "https://github.com/storytold/photocraft/releases/download/v0.14.0/photocraft-0.14.0-linux-x86_64.AppImage",
+        "size": 81168888
       }
     ]
   },
   "meta": {
-    "stars": 70876,
-    "lastRelease": "2026-10-21",
-    "updatedAt": "2026-10-22"
+    "stars": 71549,
+    "lastRelease": "2026-10-23",
+    "updatedAt": "2026-10-23"
   },
   "description": "PhotoCraft is an open-source photo editor written from scratch in pure Rust by the ArtCraft team — layers, masks, type and support for real PSD files. It ships as a native universal macOS app (DMG and Homebrew cask) and also runs on Windows and Linux. Like all Crafting Apps it is young and moving fast: v0.11.1 landed in October 2026.",
   "zh": {

@@ -26,28 +26,28 @@
     "downloads": [
       {
         "os": "mac",
-        "label": "designcraft-0.11.0-macos-universal.dmg",
-        "url": "https://github.com/storytold/designcraft/releases/download/v0.11.0/designcraft-0.11.0-macos-universal.dmg",
-        "size": 90931280
+        "label": "designcraft-0.12.0-macos-universal.dmg",
+        "url": "https://github.com/storytold/designcraft/releases/download/v0.12.0/designcraft-0.12.0-macos-universal.dmg",
+        "size": 91174073
       },
       {
         "os": "windows",
-        "label": "designcraft-0.11.0-windows-x64.msi",
-        "url": "https://github.com/storytold/designcraft/releases/download/v0.11.0/designcraft-0.11.0-windows-x64.msi",
-        "size": 63672320
+        "label": "designcraft-0.12.0-windows-x64.msi",
+        "url": "https://github.com/storytold/designcraft/releases/download/v0.12.0/designcraft-0.12.0-windows-x64.msi",
+        "size": 63766528
       },
       {
         "os": "linux",
-        "label": "designcraft-0.11.0-linux-x86_64.AppImage",
-        "url": "https://github.com/storytold/designcraft/releases/download/v0.11.0/designcraft-0.11.0-linux-x86_64.AppImage",
-        "size": 76708344
+        "label": "designcraft-0.12.0-linux-x86_64.AppImage",
+        "url": "https://github.com/storytold/designcraft/releases/download/v0.12.0/designcraft-0.12.0-linux-x86_64.AppImage",
+        "size": 76868088
       }
     ]
   },
   "meta": {
-    "stars": 4641,
-    "lastRelease": "2026-10-21",
-    "updatedAt": "2026-10-22"
+    "stars": 4685,
+    "lastRelease": "2026-10-22",
+    "updatedAt": "2026-10-23"
   },
   "description": "DesignCraft is an open-source page and layout design editor written from scratch in pure Rust by the ArtCraft team. It ships as a native universal macOS app (DMG and Homebrew cask) and also runs on Windows and Linux. Like all Crafting Apps it is young and moving fast: v0.10.0 landed in October 2026.",
   "zh": {

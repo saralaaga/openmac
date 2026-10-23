@@ -25,28 +25,28 @@
     "downloads": [
       {
         "os": "mac",
-        "label": "deckcraft-0.9.0-macos-universal.dmg",
-        "url": "https://github.com/storytold/deckcraft/releases/download/v0.9.0/deckcraft-0.9.0-macos-universal.dmg",
-        "size": 87014086
+        "label": "deckcraft-0.10.0-macos-universal.dmg",
+        "url": "https://github.com/storytold/deckcraft/releases/download/v0.10.0/deckcraft-0.10.0-macos-universal.dmg",
+        "size": 87004135
       },
       {
         "os": "windows",
-        "label": "deckcraft-0.9.0-windows-x64.msi",
-        "url": "https://github.com/storytold/deckcraft/releases/download/v0.9.0/deckcraft-0.9.0-windows-x64.msi",
-        "size": 63811584
+        "label": "deckcraft-0.10.0-windows-x64.msi",
+        "url": "https://github.com/storytold/deckcraft/releases/download/v0.10.0/deckcraft-0.10.0-windows-x64.msi",
+        "size": 63791104
       },
       {
         "os": "linux",
-        "label": "deckcraft-0.9.0-linux-x86_64.AppImage",
-        "url": "https://github.com/storytold/deckcraft/releases/download/v0.9.0/deckcraft-0.9.0-linux-x86_64.AppImage",
-        "size": 76691960
+        "label": "deckcraft-0.10.0-linux-x86_64.AppImage",
+        "url": "https://github.com/storytold/deckcraft/releases/download/v0.10.0/deckcraft-0.10.0-linux-x86_64.AppImage",
+        "size": 76696056
       }
     ]
   },
   "meta": {
-    "stars": 4095,
-    "lastRelease": "2026-10-21",
-    "updatedAt": "2026-10-22"
+    "stars": 4137,
+    "lastRelease": "2026-10-22",
+    "updatedAt": "2026-10-23"
   },
   "description": "DeckCraft is an open-source reimplementation of Microsoft PowerPoint for presentations and slide shows, written in pure Rust by the ArtCraft team. Like all Crafting Apps it is young and moving fast — check the Install panel for current downloads.",
   "zh": {

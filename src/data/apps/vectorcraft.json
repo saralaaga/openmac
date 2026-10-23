@@ -26,28 +26,28 @@
     "downloads": [
       {
         "os": "mac",
-        "label": "vectorcraft-0.14.0-macos-universal.dmg",
-        "url": "https://github.com/storytold/vectorcraft/releases/download/v0.14.0/vectorcraft-0.14.0-macos-universal.dmg",
-        "size": 140813282
+        "label": "vectorcraft-0.16.0-macos-universal.dmg",
+        "url": "https://github.com/storytold/vectorcraft/releases/download/v0.16.0/vectorcraft-0.16.0-macos-universal.dmg",
+        "size": 142274867
       },
       {
         "os": "windows",
-        "label": "vectorcraft-0.14.0-windows-x64.msi",
-        "url": "https://github.com/storytold/vectorcraft/releases/download/v0.14.0/vectorcraft-0.14.0-windows-x64.msi",
-        "size": 104124416
+        "label": "vectorcraft-0.16.0-windows-x64.msi",
+        "url": "https://github.com/storytold/vectorcraft/releases/download/v0.16.0/vectorcraft-0.16.0-windows-x64.msi",
+        "size": 104898560
       },
       {
         "os": "linux",
-        "label": "vectorcraft-0.14.0-linux-x86_64.AppImage",
-        "url": "https://github.com/storytold/vectorcraft/releases/download/v0.14.0/vectorcraft-0.14.0-linux-x86_64.AppImage",
-        "size": 119454200
+        "label": "vectorcraft-0.16.0-linux-x86_64.AppImage",
+        "url": "https://github.com/storytold/vectorcraft/releases/download/v0.16.0/vectorcraft-0.16.0-linux-x86_64.AppImage",
+        "size": 120429048
       }
     ]
   },
   "meta": {
-    "stars": 10362,
-    "lastRelease": "2026-10-21",
-    "updatedAt": "2026-10-22"
+    "stars": 10470,
+    "lastRelease": "2026-10-23",
+    "updatedAt": "2026-10-23"
   },
   "description": "VectorCraft is an open-source vector art tool written from scratch in pure Rust by the ArtCraft team. It ships as a native universal macOS app (DMG and Homebrew cask) and also runs on Windows and Linux. Like all Crafting Apps it is young and moving fast: v0.14.0 landed in October 2026.",
   "zh": {
