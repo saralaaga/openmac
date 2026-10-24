@@ -20,9 +20,9 @@
   "license": "unlicensed",
   "install": {},
   "meta": {
-    "stars": 54,
+    "stars": 56,
     "lastRelease": "2026-10-14",
-    "updatedAt": "2026-10-23"
+    "updatedAt": "2026-10-24"
   },
   "description": "AniCraft is an open-source 2D animation editor written from scratch in pure Rust by the ArtCraft team. It is at an earlier stage than its sibling apps, so check what the current build offers before relying on it.",
   "zh": {

@@ -45,9 +45,9 @@
     ]
   },
   "meta": {
-    "stars": 14374,
+    "stars": 14477,
     "lastRelease": "2026-10-23",
-    "updatedAt": "2026-10-23"
+    "updatedAt": "2026-10-24"
   },
   "description": "LightCraft is an open-source, non-destructive photo editor written from scratch in pure Rust by the ArtCraft team, covering photo library management and raw development. It ships as a native universal macOS app (DMG and Homebrew cask) and also runs on Windows and Linux. Like all Crafting Apps it is young and moving fast: v0.10.0 landed in October 2026.",
   "zh": {

@@ -44,9 +44,9 @@
     ]
   },
   "meta": {
-    "stars": 3177,
+    "stars": 3297,
     "lastRelease": "2026-10-22",
-    "updatedAt": "2026-10-23"
+    "updatedAt": "2026-10-24"
   },
   "description": "FigCraft is an open-source tool for interface design and prototyping — a clean-room take on collaborative design workflows — written in pure Rust by the ArtCraft team. Like all Crafting Apps it is young and moving fast — check the Install panel for current downloads.",
   "zh": {

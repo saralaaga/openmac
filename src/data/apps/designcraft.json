@@ -45,9 +45,9 @@
     ]
   },
   "meta": {
-    "stars": 4685,
+    "stars": 4718,
     "lastRelease": "2026-10-22",
-    "updatedAt": "2026-10-23"
+    "updatedAt": "2026-10-24"
   },
   "description": "DesignCraft is an open-source page and layout design editor written from scratch in pure Rust by the ArtCraft team. It ships as a native universal macOS app (DMG and Homebrew cask) and also runs on Windows and Linux. Like all Crafting Apps it is young and moving fast: v0.10.0 landed in October 2026.",
   "zh": {
